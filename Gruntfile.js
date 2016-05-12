@@ -135,6 +135,20 @@ module.exports = function(grunt) {
       }
     },
 
+    assemble: {
+		  options: {
+		    assets: 'assets',
+		    plugins: ['permalinks'],
+		    partials: ['includes/**/*.hbs'],
+		    layout: ['layouts/default.hbs'],
+		    data: ['data/*.{json,yml}']
+		  },
+		  site: {
+		    src: ['docs/*.hbs'],
+		    dest: './'
+		  }
+		},
+
     watch: {
 
 
@@ -176,7 +190,7 @@ module.exports = function(grunt) {
   // load all plugins from the "package.json"-file
   require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['watch', 'assemble']);
 
   grunt.registerTask('clean-build', ['clean:build']);
   grunt.registerTask('csswring' ['csswring:minify']);
@@ -186,7 +200,7 @@ module.exports = function(grunt) {
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'concat:cssFonts', 'compass:dist', 'autoprefixer', 'csswring:minify']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'concat:cssFonts', 'compass:dist', 'autoprefixer', 'csswring:minify', '']
   );
 
 };
