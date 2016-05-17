@@ -27,6 +27,11 @@
     "grunt-dalek": "latest",
     "grunt-penthouse": "^0.2.*",
     "matchdep": "latest",
-    "time-grunt": "latest"
+    "time-grunt": "latest",
+    "assemble": "~0.4.37",
+    "assemble-contrib-permalinks": "~0.3.6",
+    "fs-utils": "~0.3.6",
+    "handlebars-helper-rel": "~0.1.2",
+    "lodash": "~2.4.1"
   }
 }
