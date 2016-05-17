@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      build: ["js-min/*", "css/*", "css-min/*"]
+      build: ["src/js-min/*", "src/css/*", "src/css-min/*"]
     },
 
     compass: {
@@ -66,18 +66,18 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         src: [
-          'js/app.js'
+          'src/js/app.js'
         ],
-        dest: 'js/app.pkgd.js'
+        dest: 'src/js/app.pkgd.js'
       },
       cssFonts: {
         options: {
           separator: '\n\r'
         },
         src: [
-          'fonts/style.css'
+          'src/fonts/style.css'
         ],
-        dest: 'scss/_fonts.scss'
+        dest: 'src/scss/_fonts.scss'
       }
     },
 
@@ -89,8 +89,8 @@ module.exports = function(grunt) {
       multiple_files: {
         expand: true,
         flatten: true,
-        src: 'css/*.css',
-        dest: 'css/'
+        src: 'src/css/*.css',
+        dest: 'src/css/'
       }
     },
 
@@ -103,8 +103,8 @@ module.exports = function(grunt) {
       minify: {
         expand: true,
         flatten: true,
-        src: ['css/**/*.css'],
-        dest: 'css-min/'
+        src: ['src/css/**/*.css'],
+        dest: 'src/css-min/'
       }
     },
 
@@ -116,9 +116,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'js/',
-          src: '**/*.js',
-          dest: 'js-min/'
+          cwd: 'src/js/',
+          src: 'src/**/*.js',
+          dest: 'src/js-min/'
         }]
       }
     },
@@ -131,17 +131,17 @@ module.exports = function(grunt) {
         reporter: ['html', 'junit']
       },
       dist: {
-        src: ['tests/dalek/*.js']
+        src: ['src/tests/dalek/*.js']
       }
     },
-
+    // TODO: Configure dest and src
     assemble: {
 		  options: {
 		    assets: 'assets',
 		    plugins: ['permalinks'],
-		    partials: ['includes/**/*.hbs'],
-		    layout: ['layouts/default.hbs'],
-		    data: ['data/*.{json,yml}']
+		    partials: ['src/includes/**/*.hbs'],
+		    layout: ['src/components/layout/default.hbs'],
+		    data: ['src/data/*.{json,yml}']
 		  },
 		  site: {
 		    src: ['docs/*.hbs'],
@@ -151,13 +151,12 @@ module.exports = function(grunt) {
 
     watch: {
 
-
-      html: {
+			html: {
         files: ['*.html'],
         options: {
           livereload: true
-        }
       },
+        }
 
       twig: {
         files: ['*.twig'],
@@ -200,7 +199,7 @@ module.exports = function(grunt) {
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'concat:cssFonts', 'compass:dist', 'autoprefixer', 'csswring:minify', '']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'concat:cssFonts', 'compass:dist', 'autoprefixer', 'csswring:minify', 'assemble']
   );
 
 };
