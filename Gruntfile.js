@@ -80,24 +80,7 @@ module.exports = function(grunt) {
         },
         src: ['<%= site.patterns %>/**/*.hbs'],
         dest: '<%= site.dest %>/patterns/'
-      }/*,
-      copy: {
-			  main: {
-			    files: [
-			      // includes files within path
-			      {expand: true, src: ['path/*'], dest: 'dest/', filter: 'isFile'},
-
-			      // includes files within path and its sub-directories
-			      {expand: true, src: ['path/**'], dest: 'dest/'},
-
-			      // makes all src relative to cwd
-			      {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
-
-			      // flattens results to a single level
-			      {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
-			    ],
-			  },
-			}*/
+      },
     },
     /**
      * END: Assemble Part
@@ -127,15 +110,6 @@ module.exports = function(grunt) {
           'js/app.js'
         ],
         dest: 'js/app.pkgd.js'
-      },
-      cssFonts: {
-        options: {
-          separator: '\n\r'
-        },
-        src: [
-          'fonts/style.css'
-        ],
-        dest: 'scss/_fonts.scss'
       }
     },
 
@@ -154,7 +128,6 @@ module.exports = function(grunt) {
 
     csswring: {
       options: {
-        banner: '<%= meta.banner %>\n',
         map: true,
         preserveHacks: true
       },
@@ -169,7 +142,6 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         options: {
-          banner: '<%= meta.bannerJS %>\n',
           sourceMap: true
         },
         files: [{
@@ -180,6 +152,25 @@ module.exports = function(grunt) {
         }]
       }
     },
+
+    copy: {
+		  main: {
+		    files: [
+		      // includes files within path
+		      {expand: true, src: ['css/*'], dest: '_dist/public/', filter: 'isFile'},
+		      /*
+		      // includes files within path and its sub-directories
+		      {expand: true, src: ['path/**'], dest: 'dest/'},
+
+		      // makes all src relative to cwd
+		      {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
+
+		      // flattens results to a single level
+		      {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
+		      */
+		    ],
+		  }
+		},
 
     watch: {
 
@@ -225,8 +216,9 @@ module.exports = function(grunt) {
   require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
   // The default task to run with the `grunt` command
-  //grunt.registerTask('assemble', ['assemble']);
   grunt.registerTask('default', ['watch', 'assemble']);
+
+  grunt.registerTask('assemble-it', ['assemble', 'copy:main']);
 
   grunt.registerTask('clean-build', ['clean:build']);
   grunt.registerTask('csswring', ['csswring:minify']);
@@ -234,6 +226,6 @@ module.exports = function(grunt) {
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'concat:cssFonts', 'compass:dist', 'autoprefixer', 'csswring:minify']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', /*'csswring:minify',*/ 'copy:main']
   );
 };
