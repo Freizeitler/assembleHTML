@@ -1,0 +1,66 @@
+/*
+Error: File to import not found or unreadable: ../vendor/bower/normalize-scss/normalize.
+       Load paths:
+         Compass::SpriteImporter
+         D:/GitRepos/assembleHTML/scss
+         D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.1.0.alpha.0/stylesheets
+         D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-rgbapng-0.2.1/lib/stylesheets
+        on line 3 of D:/GitRepos/assembleHTML/scss/ie.scss
+
+1: @charset "UTF-8";
+2: 
+3: @import "../vendor/bower/normalize-scss/normalize";
+4: 
+5: // Global Settings
+6: @import "app_settings";
+7: 
+8: // Helper
+
+Backtrace:
+D:/GitRepos/assembleHTML/scss/ie.scss:3
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/import_node.rb:66:in `rescue in import'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/import_node.rb:45:in `import'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/import_node.rb:28:in `imported_file'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/import_node.rb:37:in `css_import?'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:295:in `visit_import'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/stack.rb:79:in `block in with_base'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/stack.rb:115:in `with_frame'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/stack.rb:79:in `with_base'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:152:in `visit'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/base.rb:52:in `map'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:151:in `visit'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/visitors/perform.rb:8:in `visit'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/root_node.rb:36:in `css_tree'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/engine.rb:285:in `render_with_sourcemap'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/plugin/compiler.rb:209:in `each'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.2/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/lib/compass/sass_compiler.rb:40:in `compile!'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/lib/compass/commands/update_project.rb:49:in `perform'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/lib/compass/commands/base.rb:18:in `execute'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/lib/compass/commands/project_base.rb:19:in `execute'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/bin/compass:30:in `block in <top (required)>'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/bin/compass:44:in `call'
+D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-1.1.0.alpha.0/bin/compass:44:in `<top (required)>'
+D:/xampp/Ruby200-x64/bin/compass:23:in `load'
+D:/xampp/Ruby200-x64/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: ../vendor/bower/normalize-scss/normalize.\A        Load paths:\A          Compass::SpriteImporter\A          D:/GitRepos/assembleHTML/scss\A          D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.1.0.alpha.0/stylesheets\A          D:/xampp/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-rgbapng-0.2.1/lib/stylesheets\A         on line 3 of D:/GitRepos/assembleHTML/scss/ie.scss\A \A 1: @charset \"UTF-8\";\A 2: \A 3: @import \"../vendor/bower/normalize-scss/normalize\";\A 4: \A 5: // Global Settings\A 6: @import \"app_settings\";\A 7: \A 8: // Helper"; }

@@ -8,7 +8,7 @@ title:          "Assemble &raquo; Pattern Lab"
 # DEST CONFIG
 # =============================================
 
-base:           dist
+base:           _dist
 dest:           <%= site.base %>
 assets:         <%= site.base %>/public
 
@@ -17,26 +17,28 @@ assets:         <%= site.base %>/public
 # =============================================
 
 # Data
-data:           src/data
+data:           data
 
 # Templates
-structure:      src/components
+structure:      templates
 includes:       <%= site.structure %>/includes
 layouts:        <%= site.structure %>/layouts
 layout:         default
 layoutext:      .hbs
 
 # Extensions
-helpers:        src/helpers
+helpers:
+- <%= site.structure %>/_helpers
 
-plugins: 				assemble-contrib-permalinks
+plugins:
+- assemble-contrib-permalinks
 
 
 # =============================================
 # PATTERN LAB TEMPLATES
 # =============================================
 
-patterns:       <%= site.structure %>
+patterns:       patterns
 atoms:          <%= site.patterns %>/atoms
 molecules:      <%= site.patterns %>/molecules
 organisms:      <%= site.patterns %>/organisms
