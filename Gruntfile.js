@@ -80,7 +80,24 @@ module.exports = function(grunt) {
         },
         src: ['<%= site.patterns %>/**/*.hbs'],
         dest: '<%= site.dest %>/patterns/'
-      }
+      }/*,
+      copy: {
+			  main: {
+			    files: [
+			      // includes files within path
+			      {expand: true, src: ['path/*'], dest: 'dest/', filter: 'isFile'},
+
+			      // includes files within path and its sub-directories
+			      {expand: true, src: ['path/**'], dest: 'dest/'},
+
+			      // makes all src relative to cwd
+			      {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
+
+			      // flattens results to a single level
+			      {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
+			    ],
+			  },
+			}*/
     },
     /**
      * END: Assemble Part
@@ -122,7 +139,7 @@ module.exports = function(grunt) {
       }
     },
 
-     autoprefixer: {
+    autoprefixer: {
       options: {
         browsers: ['last 100 version'],
         map: true
