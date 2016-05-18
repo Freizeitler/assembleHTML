@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         options: {
           permalinks: {
             preset: 'pretty',
-            structure: ':pattern-:group',
+            structure: ':pattern/:group/:filename',
             patterns: [
               {
                 pattern: /:pattern/,
