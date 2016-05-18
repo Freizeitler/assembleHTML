@@ -1,9 +1,15 @@
 {
-  "name": "boilerplate",
+  "name": "assembleHTML",
   "version": "1.0.0",
   "private": "true",
   "author": "menadwork kommunikation GmbH (http://www.menadwork.com)",
   "devDependencies": {
+    "assemble": "~0.4.37",
+    "assemble-contrib-permalinks": "~0.3.6",
+    "fs-utils": "~0.3.6",
+    "grunt-contrib-clean": "~0.5.0",
+    "handlebars-helper-rel": "~0.1.2",
+    "lodash": "~2.4.1",
     "grunt": "latest",
     "matchdep": "latest",
     "time-grunt": "latest",
@@ -15,17 +21,8 @@
     "grunt-contrib-compass": "latest",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-clean": "latest",
-    "grunt-contrib-imagemin": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-autoprefixer": "latest",
-    "grunt-csswring": "latest",
-    "grunt-penthouse": "^0.2.*",
-    "dalekjs": "latest",
-    "grunt-dalek": "latest",
-    "dalek-browser-chrome": "latest",
-    "dalek-browser-firefox": "latest",
-    "dalek-browser-ie": "latest",
-    "dalek-browser-ios": "latest",
-    "dalek-reporter-html": "latest"
+    "grunt-csswring": "latest"
   }
 }
