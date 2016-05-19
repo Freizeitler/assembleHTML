@@ -103,11 +103,12 @@ module.exports = function(grunt) {
     concat: {
       js: {
         options: {
-          separator: ';\n\r',
+          separator: '\n\r',
           sourceMap: true
         },
         src: [
-          'js/app.js'
+          'js/app.js',
+          '<%= site.patterns %>/**/*.js'
         ],
         dest: 'js/app.pkgd.js'
       }
@@ -146,9 +147,8 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'js/',
-          src: '**/*.js',
-          dest: 'js-min/'
+          src: 'js/app.pkgd.js',
+          dest: 'js-min/app.pkgd.js'
         }]
       }
     },
@@ -181,7 +181,7 @@ module.exports = function(grunt) {
       },
 
       js: {
-        files: ['js/*.js'],
+        files: ['js/*.js', '<%= site.patterns %>/**/*.js'],
         tasks: ['concat:js', 'uglify:js'],
         options: {
           livereload: true
@@ -189,7 +189,7 @@ module.exports = function(grunt) {
       },
 
       sass: {
-        files: ['scss/**/*.scss'],
+        files: ['scss/**/*.scss', '<%= site.patterns %>/**/*.scss'],
         tasks: ['compass:dist', 'autoprefixer', 'csswring:minify'],
         options: {
           livereload: true,
