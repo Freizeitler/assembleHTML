@@ -1,1 +1,0 @@
-{"version":3,"sources":["app.js"],"names":[],"mappings":"AAAA,EAAE,QAAQ,EAAE,KAAK,CAAC,QAAQ,EAAE,CAAC,CAAC;AAC9B","file":"app.pkgd.js","sourcesContent":["$(document).ready(function() {\n});"]}
