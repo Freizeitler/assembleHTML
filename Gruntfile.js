@@ -1,52 +1,93 @@
-/**
- * # Grunt
- * A task manager for auto compiling and validating code
+/*
+ * assemble-pattern-lab <https://github.com/assemble/assemble-pattern-lab>
  *
- * ## Set up
- * Make sure the you have nodejs running on your machine
- * Install Grunt with npm `npm install -g grunt-cli`
- * Install Grunt packages `npm install`
- *
- * ## Config
- * The configuration settings are found in `package.json`.
- *
- * ## Running
- * You can type `grunt <command>` to run any of rules in the `initConfig` function
- * e.g. `grunt compass` to compile the scss files to css
- *
- * You can also run a sub-task by adding `:<subtask>`
- * e.g. `grunt uglify:js` to compile to javaScript header file
- *
- * ## Helper Commands
- * There are a number of helper command at the end of the file
- * - default (`grunt`) will watch the folder and compile when files are saved
+ * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
+ * Licensed under the MIT license.
  */
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
 
 module.exports = function(grunt) {
-  'use strict';
 
+  'use strict';
   // require it at the top and pass in the grunt instance
   require('time-grunt')(grunt);
 
+  // Project configuration.
   grunt.initConfig({
 
+    // Project metadata
     pkg: grunt.file.readJSON('package.json'),
 
-    meta: {
-      banner: '<%= pkg.name %> by <%= pkg.author %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)',
-      bannerJS:
-      '/*\n' +
-      ' * <%= meta.banner %>\n' +
-      ' */'
+    /**
+     * START: Assemble Part
+     */
+    // <%= site %> metadata comes from this file
+    site: grunt.file.readYAML('.assemble.yml'),
+
+    assemble: {
+      options: {
+        flatten: true,
+        assets: '<%= site.assets %>',
+
+        // Metadata
+        pkg: '<%= pkg %>',
+        site: '<%= site %>',
+        data: ['<%= site.data %>/**/*.json'],
+        helpers: ['<%= site.helpers %>/*.js'],
+        plugins: '<%= site.plugins %>',
+
+        // General templates
+        partials: ['<%= site.includes %>/**/*.hbs'],
+        layouts: '<%= site.layouts %>',
+        layoutext: '<%= site.layoutext %>',
+        layout: '<%= site.layout %>',
+
+        // Pattern Lab templates
+        patterns: {
+          atoms: ['<%= site.atoms %>/**/*.hbs'],
+          molecules: ['<%= site.molecules %>/**/*.hbs'],
+          organisms: ['<%= site.organisms %>/**/*.hbs'],
+          templates: ['<%= site.templates %>/**/*.hbs'],
+        }
+      },
+
+      // 'pages' are specified in the src
+      site: {
+        src: ['<%= site.pages %>/*.hbs', 'src/*.hbs'],
+        dest: '<%= site.dest %>/'
+      },
+
+      patterns: {
+        options: {
+          permalinks: {
+            preset: 'pretty',
+            structure: ':pattern/:group',
+            patterns: [
+              {
+                pattern: /:pattern/,
+                replacement: function(src) {
+                  return this.src.split('/')[1];
+                }
+              },
+              {
+                pattern: /:group/,
+                replacement: function(src) {
+                  return this.src.split('/')[2];
+                }
+              }
+            ]
+          }
+        },
+        src: ['<%= site.patterns %>/**/*.hbs'],
+        dest: '<%= site.dest %>/patterns/'
+      },
     },
+    /**
+     * END: Assemble Part
+     */
 
     clean: {
+      examples: ['<%= assemble.examples.dest %>/**'],
       build: ["js-min/*", "css/*", "css-min/*"]
     },
 
@@ -69,15 +110,6 @@ module.exports = function(grunt) {
           'js/app.js'
         ],
         dest: 'js/app.pkgd.js'
-      },
-      cssFonts: {
-        options: {
-          separator: '\n\r'
-        },
-        src: [
-          'fonts/style.css'
-        ],
-        dest: 'scss/_fonts.scss'
       }
     },
 
@@ -96,7 +128,6 @@ module.exports = function(grunt) {
 
     csswring: {
       options: {
-        banner: '<%= meta.banner %>\n',
         map: true,
         preserveHacks: true
       },
@@ -111,7 +142,6 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         options: {
-          banner: '<%= meta.bannerJS %>\n',
           sourceMap: true
         },
         files: [{
@@ -123,22 +153,20 @@ module.exports = function(grunt) {
       }
     },
 
-    dalek: {
-      options: {
-        // invoke phantomjs, chrome & chrome canary ...
-        browser: ['phantomjs', 'chrome', 'ie'],
-        // generate an html & an jUnit report
-        reporter: ['html', 'junit']
-      },
-      dist: {
-        src: ['tests/dalek/*.js']
-      }
-    },
+    copy: {
+		  main: {
+		    files: [
+		      // includes files within path
+		      {expand: true, src: ['css/**/*'], dest: '_dist/public/', filter: 'isFile'},
+		      {expand: true, src: ['js/**/*'], dest: '_dist/public/', filter: 'isFile'},
+		      {expand: true, src: ['images/**/*'], dest: '_dist/public/', filter: 'isFile'}
+		    ],
+		  }
+		},
 
     watch: {
 
-
-      html: {
+			html: {
         files: ['*.html'],
         options: {
           livereload: true
@@ -171,22 +199,25 @@ module.exports = function(grunt) {
 
     }
 
+
   });
 
+  // Load Assemble
+  grunt.task.loadNpmTasks('assemble');
   // load all plugins from the "package.json"-file
   require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['watch']);
+  // The default task to run with the `grunt` command
+  grunt.registerTask('default', ['watch', 'assemble']);
+
+  grunt.registerTask('assemble-it', ['assemble', 'copy:main']);
 
   grunt.registerTask('clean-build', ['clean:build']);
-  grunt.registerTask('csswring' ['csswring:minify']);
-  grunt.registerTask('image-min', ['imagemin:dynamic']);
-  grunt.registerTask('test', ['dalek']);
+  grunt.registerTask('csswring', ['csswring:minify']);
 
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'concat:cssFonts', 'compass:dist', 'autoprefixer', 'csswring:minify']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', /*'csswring:minify',*/ 'copy:main']
   );
-
 };
