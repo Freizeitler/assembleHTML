@@ -39,9 +39,10 @@ temp
 vendor
 node_modules
 bower_components
-_gh_pages
+_dist
 _site
 _draft
+.sass-cache
 
 # Files to ignore
 _README.md

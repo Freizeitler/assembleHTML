@@ -1,1402 +1,537 @@
-/*
-
-*/
-/*------------------------------------*\
-    $TABLE OF CONTENTS
-\*------------------------------------*/
+/* ==========================================================================
+   Normalize.scss settings
+   ========================================================================== */
 /**
- * VARIABLES..............................Declarations of Sass variables
- * .....Colors
- * .....Typography
- * .....Layout
- * .....Defaults
- * .....Breakpoints
- * MIXINS.................................Sass mixins
- * RESET..................................Set reset defaults
- * GLOBAL CLASSES.........................Set reset defaults
- * GLOBAL ELEMENTS........................Establish global styles
- * .....Main
- * .....Headings
- * .....Text-related elements (p, blockquote, lists)
- * .....Defaults
- * .....Breakpoints
- * TYPOGRAPHY------------------------------
- * MEDIA------------------------------
- * LAYOUT------------------------------
- * NAVIGATION------------------------------
- * TOC To Be Continued
+ * Includes legacy browser support IE6/7
+ *
+ * Set to false if you want to drop support for IE6 and IE7
  */
-/*------------------------------------*\
-    $VARIABLES
-\*------------------------------------*/
-/*------------------------------------*\
-    $MIXINS
-\*------------------------------------*/
-/* CSS Transition
-	Usage: @include transition(width,0.3s,ease-out);
+/* Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ * 3. Corrects text resizing oddly in IE 6/7 when body `font-size` is set using
+ *  `em` units.
  */
-/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
-	Usage: @include font-size(1, large);
-*/
-/*------------------------------------*\
-    $RESET
-\*------------------------------------*/
-/* Border-Box http:/paulirish.com/2012/box-sizing-border-box-ftw/ */
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, li, form, legend, label, table, header, footer, nav, section, figure {
-  margin: 0;
-  padding: 0;
-}
-
-header, footer, nav, section, article, hgroup, figure {
-  display: block;
-}
-
-/*------------------------------------*\
-    $GLOBAL ELEMENTS
-\*------------------------------------*/
-/*------------------------------------*\
-    $GLOBAL CLASSES
-\*------------------------------------*/
-/* Clearfix */
-.cf, .l-two-col, [role=main] {
-  *zoom: 1;
-}
-
-.cf:before, .l-two-col:before, [role=main]:before, .cf:after, .l-two-col:after, [role=main]:after {
-  content: " ";
+/* line 23, ../vendor/bower/normalize-scss/_normalize.scss */
+html {
+  font-family: sans-serif;
   /* 1 */
-  display: table;
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
   /* 2 */
 }
 
-.cf:after, .l-two-col:after, [role=main]:after {
-  clear: both;
-}
-
-/* Completely remove from the flow and screen readers. */
-.is-hidden {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-/* Completely remove from the flow but leave available to screen readers. */
-.is-vishidden {
-  position: absolute !important;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-
-/* Floats */
-.right {
-  float: right;
-  padding: 0 0 1rem 1rem;
-}
-
-.right-search {
-  float: right;
-  padding: 0 0 1rem 0;
-}
-
-.left {
-  float: left;
-  padding: 0 1rem 1rem 0;
-}
-
-/* Text-Align */
-.align-right {
-  text-align: right;
-}
-
-.align-center {
-  text-align: center;
-}
-
-.align-left {
-  text-align: left;
-}
-
-/* Display Classes */
-@media all and (max-width: 46.8em) {
-  .hide-small {
-    display: none;
-  }
-}
-
-@media all and (min-width: 46.8em) and (max-width: 50em) {
-  .hide-med {
-    display: none;
-  }
-}
-
-@media all and (min-width: 50em) {
-  .hide-large {
-    display: none;
-  }
-}
-
-.valid {
-  color: #089e00;
-}
-
-.error {
-  color: red;
-}
-
+/**
+ * Remove default margin.
+ */
+/* line 36, ../vendor/bower/normalize-scss/_normalize.scss */
 body {
-  background: white;
-  font: 100%/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  -webkit-text-size-adjust: 100%;
-  color: #333333;
+  margin: 0;
 }
 
-/* Links */
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+/* line 50, ../vendor/bower/normalize-scss/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+/* line 71, ../vendor/bower/normalize-scss/_normalize.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 88, ../vendor/bower/normalize-scss/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+/* line 98, ../vendor/bower/normalize-scss/_normalize.scss */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 110, ../vendor/bower/normalize-scss/_normalize.scss */
 a {
-  color: #333333;
-  text-decoration: none;
+  background-color: transparent;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+/* line 120, ../vendor/bower/normalize-scss/_normalize.scss */
+a:active, a:hover {
   outline: 0;
 }
-a:hover, a:focus {
-  color: gray;
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+/* line 132, ../vendor/bower/normalize-scss/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
 }
 
-/* Headings */
-/*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
-h1, .alpha {
-  line-height: 1.2;
-}
-
-h2, .beta {
-  line-height: 1.2;
-}
-
-h3, .gamma {
-  line-height: 1.2;
-}
-
-/* Subheadings */
-.subheading {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: normal;
-}
-
-/* Text-Related Elements */
-p {
-  margin-bottom: 1rem;
-}
-
-/* Blockquote */
-blockquote {
-  font-style: italic;
-  border-left: 1px solid gray;
-  color: gray;
-  padding-left: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Horizontal Rule */
-hr {
-  border: 0;
-  height: 2px;
-  background: #eeeeee;
-  margin: 2rem 0;
-}
-
-abbr {
-  border-bottom: 1px dotted gray;
-  cursor: help;
-}
-
-ol, ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* Definition Lists */
-dl {
-  overflow: hidden;
-  margin: 0 0 1rem;
-}
-
-dt {
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+/* line 140, ../vendor/bower/normalize-scss/_normalize.scss */
+b,
+strong {
   font-weight: bold;
 }
 
-dd {
-  margin-left: 0;
-}
-
-/*------------------------------------*\
-    $MEDIA ELEMENTS
-\*------------------------------------*/
-/* Flexible Media */
-img, video, object {
-  max-width: 100%;
-  height: auto;
-}
-
-iframe {
-  margin-bottom: 1rem;
-}
-
-figure {
-  margin-bottom: 1rem;
-}
-figure img {
-  margin-bottom: 0.25rem;
-}
-
-figcaption {
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+/* line 155, ../vendor/bower/normalize-scss/_normalize.scss */
+dfn {
   font-style: italic;
 }
 
-/*------------------------------------*\
-    $FORMS
-\*------------------------------------*/
-form > div {
-  margin-bottom: 1rem;
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+/* line 164, ../vendor/bower/normalize-scss/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
 }
 
-form ol, form ul {
-  list-style: none;
-  margin-left: 0;
+/**
+ * Addresses styling not present in IE 8/9.
+ */
+/* line 200, ../vendor/bower/normalize-scss/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
 }
 
-fieldset {
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 239, ../vendor/bower/normalize-scss/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 247, ../vendor/bower/normalize-scss/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 255, ../vendor/bower/normalize-scss/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 259, ../vendor/bower/normalize-scss/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * 1. Remove border when inside `a` element in IE 8/9/10.
+ * 2. Improves image quality when scaled in IE 7.
+ */
+/* line 314, ../vendor/bower/normalize-scss/_normalize.scss */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+/* line 325, ../vendor/bower/normalize-scss/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+/* line 336, ../vendor/bower/normalize-scss/_normalize.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 344, ../vendor/bower/normalize-scss/_normalize.scss */
+hr {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+/* line 353, ../vendor/bower/normalize-scss/_normalize.scss */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+/* line 362, ../vendor/bower/normalize-scss/_normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *  Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * 4. Improves appearance and consistency in all browsers.
+ */
+/* line 389, ../vendor/bower/normalize-scss/_normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+/* line 407, ../vendor/bower/normalize-scss/_normalize.scss */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+/* line 418, ../vendor/bower/normalize-scss/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *  and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *  `input` and others.
+ * 4. Removes inner spacing in IE 7 without affecting normal text inputs.
+ *  Known issue: inner spacing remains in IE 6.
+ */
+/* line 433, ../vendor/bower/normalize-scss/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 448, ../vendor/bower/normalize-scss/_normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 457, ../vendor/bower/normalize-scss/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
-  margin: 0;
 }
 
-label {
-  display: block;
-  padding-bottom: 0.25rem;
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 468, ../vendor/bower/normalize-scss/_normalize.scss */
+input {
+  line-height: normal;
 }
 
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-  margin: 0;
-}
-
-input, textarea {
-  width: 100%;
-  border: 1px solid gray;
-  padding: 0.5rem 0.65rem;
-}
-
-input[type=text], input[type=search], input[type=url], input[type=number], textarea {
-  -webkit-appearance: none;
-}
-
-button, input[type="submit"] {
-  padding: 0.5rem;
-  background: #333333;
-  border: 1px solid gray;
-  cursor: pointer;
-}
-
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ *  Known issue: excess padding remains in IE 6.
+ */
+/* line 478, ../vendor/bower/normalize-scss/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
-  width: auto;
-  margin-right: 0.3em;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+/* line 494, ../vendor/bower/normalize-scss/_normalize.scss */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+/* line 504, ../vendor/bower/normalize-scss/_normalize.scss */
 input[type="search"] {
-  -webkit-appearance: none;
-  border-radius: 0;
+  -webkit-appearance: textfield;
+  /* 1 */
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+  /* 2 */
 }
 
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+/* line 515, ../vendor/bower/normalize-scss/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.field-container {
-  margin-bottom: 1rem;
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 524, ../vendor/bower/normalize-scss/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
 }
 
-.inline-form fieldset, .inline-form .inline-container {
-  position: relative;
-}
-.inline-form input[type=submit], .inline-form button, .inline-form .btn {
-  font-size: 0.875em;
-  padding: 0.65rem 1.3rem;
-  background: #333333;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: auto;
-}
-.inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn:focus {
-  background: gray;
-  color: white;
-}
-
-.inline-search-results-form {
-  width: 100%;
-}
-@media all and (min-width: 46.8em) {
-  .inline-search-results-form {
-    width: 82%;
-  }
-}
-.inline-search-results-form fieldset, .inline-search-results-form .inline-container {
-  position: relative;
-}
-.inline-search-results-form input[type=submit], .inline-search-results-form button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: auto;
-}
-
-/* Validation */
-.has-error {
-  border-color: red;
-}
-
-.is-valid {
-  border-color: #089e00;
-}
-
-/*------------------------------------*\
-    $SPECIFIC FORMS
-\*------------------------------------*/
-/* Search Form */
-.search-field {
-  padding-right: 3em;
-}
-
-.inline-form .search-submit {
-  background: none;
-  padding: 0.78em 1em;
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 3. Corrects text not wrapping in Firefox 3.
+ * 4. Corrects alignment displayed oddly in IE 6/7.
+ */
+/* line 537, ../vendor/bower/normalize-scss/_normalize.scss */
+legend {
   border: 0;
-  border-left: 1px solid gray;
-  color: gray;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
-/*------------------------------------*\
-    $Table
-\*------------------------------------*/
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+/* line 550, ../vendor/bower/normalize-scss/_normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+/* line 559, ../vendor/bower/normalize-scss/_normalize.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 570, ../vendor/bower/normalize-scss/_normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid gray;
-  width: 100%;
 }
 
+/* line 575, ../vendor/bower/normalize-scss/_normalize.scss */
+td,
 th {
-  text-align: left;
-  border: 1px solid gray;
-  padding: 0.2em;
-}
-
-td {
-  border: 1px solid gray;
-  padding: 0.2em;
-}
-
-.animate-fade {
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
-}
-.animate-fade:hover {
-  opacity: 0;
-}
-
-.animate-move > .demo-shape {
-  -webkit-transition: all 0.8s ease-in-out;
-  -moz-transition: all 0.8s ease-in-out;
-  -ms-transition: all 0.8s ease-in-out;
-  -o-transition: all 0.8s ease-in-out;
-  transition: all 0.8s ease-in-out;
-}
-
-/*------------------------------------*\
-    $LAYOUT
-\*------------------------------------*/
-/*------------------------------------*\
-    $LAYOUT
-\*------------------------------------*/
-/* Layout Container */
-.lc, .header, [role=main] {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: 0.5rem;
-}
-
-/*------------------------------------*\
-    $TEMPLATES
-\*------------------------------------*/
-/* Two Column Layout */
-@media all and (min-width: 50em) {
-  .l-two-col .l-main {
-    float: left;
-    width: 70%;
-    padding-right: 1rem;
-  }
-}
-@media all and (max-width: 50em) {
-  .l-two-col .l-sidebar {
-    clear: both;
-  }
-}
-@media all and (min-width: 50em) {
-  .l-two-col .l-sidebar {
-    float: left;
-    width: 30%;
-    padding: 0 0 0 1rem;
-  }
-}
-
-/*------------------------------------*\
-    $GRIDS
-\*------------------------------------*/
-/* Grid Container */
-.g {
-  overflow: hidden;
-  margin: 0 -0.5rem;
-}
-
-/* Grid Item */
-.gi {
-  padding: 0.5rem;
-}
-.gi img {
-  display: block;
-}
-@media all and (min-width: 46.8em) {
-  .gi {
-    float: left;
-  }
-}
-
-/* Grid 1up */
-.g-1up .gi {
-  width: 100%;
-}
-
-/* Grid 2up */
-@media all and (min-width: 46.8em) {
-  .g-2up > .gi {
-    float: left;
-    width: 50%;
-  }
-  .g-2up > .gi:nth-of-type(odd) {
-    clear: left;
-  }
-}
-
-/* Grid Half (Always displayed side by side) */
-.g-half > .gi {
-  float: left;
-  width: 50%;
-}
-.g-half > .gi:nth-of-type(odd) {
-  clear: left;
-}
-
-/* Grid 3up */
-@media all and (min-width: 46.8em) {
-  .g-3up > .gi {
-    float: left;
-    width: 50%;
-  }
-  .g-3up > .gi:nth-of-type(2n+1) {
-    clear: left;
-  }
-}
-@media all and (min-width: 50em) {
-  .g-3up > .gi {
-    width: 33.3333333%;
-  }
-  .g-3up > .gi:nth-of-type(2n+1) {
-    clear: none;
-  }
-  .g-3up > .gi:nth-of-type(3n+1) {
-    clear: left;
-  }
-}
-
-/* Grid 4up */
-@media all and (min-width: 46.8em) {
-  .g-4up > .gi {
-    float: left;
-    width: 50%;
-  }
-  .g-4up > .gi:nth-of-type(2n+1) {
-    clear: both;
-  }
-}
-@media all and (min-width: 50em) {
-  .g-4up > .gi {
-    width: 25%;
-  }
-  .g-4up > .gi:nth-of-type(2n+1) {
-    clear: none;
-  }
-  .g-4up > .gi:nth-of-type(4n+1) {
-    clear: left;
-  }
-}
-
-/* Grid Quarter (Always displayed side by side) */
-.g-quarter > .gi {
-  float: left;
-  width: 24%;
-}
-.g-quarter > .gi:nth-of-type(4n+1) {
-  clear: left;
-}
-
-@media all and (min-width: 29.75em) {
-  .g-max4 > .gi {
-    float: left;
-    width: 50%;
-  }
-  .g-max4 > .gi:nth-of-type(2n+1) {
-    clear: both;
-  }
-}
-@media all and (min-width: 39.8em) {
-  .g-max4 > .gi {
-    width: 33.3333333%;
-  }
-  .g-max4 > .gi:nth-of-type(2n+1) {
-    clear: none;
-  }
-  .g-max4 > .gi:nth-of-type(3n+1) {
-    clear: left;
-  }
-}
-@media all and (min-width: 50em) {
-  .g-max4 > .gi {
-    width: 25%;
-  }
-  .g-max4 > .gi:nth-of-type(3n+1) {
-    clear: none;
-  }
-  .g-max4 > .gi:nth-of-type(4n+1) {
-    clear: left;
-  }
-}
-
-/* Grid 5up */
-.g-max5 > .gi {
-  float: left;
-  width: 50%;
-}
-.g-max5 > .gi:nth-of-type(2n+1) {
-  clear: both;
-}
-@media all and (min-width: 39.8em) {
-  .g-max5 > .gi {
-    width: 33.3333333%;
-  }
-  .g-max5 > .gi:nth-of-type(2n+1) {
-    clear: none;
-  }
-  .g-max5 > .gi:nth-of-type(3n+1) {
-    clear: left;
-  }
-}
-@media all and (min-width: 46.8em) {
-  .g-max5 > .gi {
-    width: 25%;
-  }
-  .g-max5 > .gi:nth-of-type(3n+1) {
-    clear: none;
-  }
-  .g-max5 > .gi:nth-of-type(4n+1) {
-    clear: left;
-  }
-}
-@media all and (min-width: 48em) {
-  .g-max5 > .gi {
-    width: 20%;
-  }
-  .g-max5 > .gi:nth-of-type(4n+1) {
-    clear: none;
-  }
-  .g-max5 > .gi:nth-of-type(5n+1) {
-    clear: left;
-  }
-}
-
-/* Grid 2/3 */
-@media all and (min-width: 46.8em) {
-  .gi-2-3 {
-    float: left;
-    width: 66.666666%;
-  }
-}
-
-@media all and (min-width: 46.8em) {
-  .gi-1-3 {
-    float: left;
-    width: 33.333333%;
-  }
-}
-
-/* Grid 4up block */
-.g-opposites .gi {
-  float: left;
-}
-.g-opposites .gi:last-child {
-  float: right;
-  text-align: right;
-}
-
-/*------------------------------------*\
-    $PAGE STRUCTURE
-\*------------------------------------*/
-.header {
-  background: white;
   padding: 0;
-  border-bottom: 1px solid #dbdbdb;
 }
 
-.logo {
+/**
+* Settings
+*
+* @desc Place variables and mixings for default settings here
+* @author [XX]
+* @dependency none
+*/
+/** Easings, grabbed from https://css-tricks.com/snippets/sass/easing-map-get-function/
+ *
+ * Example function call:
+	.example {
+	  animation: there-and-back 2.5s ease(in-quad) infinite alternate;
+	}
+**/
+/**
+* Helper
+*
+* @desc Helper are classes and formattings which are used to accomplish repeating task. Mainly we use ds- for design-task and bv- for behavioral tasks.
+* @author [XX]
+* @dependency _app_settings.scss
+*/
+/* line 11, ../scss/_helper.scss */
+.bv-cf:before, .bv-cf:after {
+  content: " ";
+  display: table;
+}
+/* line 17, ../scss/_helper.scss */
+.bv-cf:after {
+  clear: both;
+}
+
+/* line 19, ../scss/_helper.scss */
+.bv-float-left {
   float: left;
-  max-width: 8rem;
-  margin: 0.4rem;
-}
-@media all and (min-width: 46.8em) {
-  .logo {
-    max-width: 9rem;
-  }
 }
 
-.nav-toggle {
+/* line 20, ../scss/_helper.scss */
+.bv-float-right {
   float: right;
-  display: block;
-  padding: 0.9rem 1rem 0.7rem;
-  font-size: 1.3rem;
-  line-height: 1;
-  border-left: 1px solid #dbdbdb;
-}
-@media all and (min-width: 46.8em) {
-  .nav-toggle {
-    display: none;
-  }
 }
 
-.search-form {
-  overflow: hidden;
-  max-height: 0;
-}
-@media all and (min-width: 46.8em) {
-  .search-form {
-    float: right;
-    max-height: none;
-    margin: 0.65em 0.5em 0 0;
-  }
-}
-
-/*------------------------------------*\
-    $NAVIGATION
-\*------------------------------------*/
-.nav {
-  clear: both;
-  overflow: hidden;
-  max-height: 0;
-}
-.nav a {
-  display: block;
-  padding: 1rem;
-  border-top: 1px solid #eeeeee;
-}
-.nav.active {
-  max-height: 40em;
-}
-@media all and (min-width: 46.8em) {
-  .nav {
-    max-height: none;
-    float: right;
-    clear: none;
-  }
-  .nav li {
-    float: left;
-  }
-  .nav a {
-    border: 0;
-  }
-}
-
-.pagination {
-  overflow: hidden;
-}
-.pagination li {
-  float: left;
-  border-right: 1px solid #eeeeee;
-}
-.pagination li:last-child {
-  border: 0;
-}
-.pagination a {
-  padding: 1rem;
-}
-
-/*------------------------------------*\
-    $MAIN CONTENT AREA
-\*------------------------------------*/
-[role=main] {
-  padding: 0.5rem 0.5rem 2rem;
-  overflow: hidden;
-}
-
-/*------------------------------------*\
-    $FOOTER
-\*------------------------------------*/
-.footer {
-  clear: both;
-  overflow: hidden;
-  background: #131313;
-  color: white;
-  line-height: 1.2;
-}
-.footer .lc, .footer .header, .footer [role=main] {
-  padding: 1rem 1rem 0;
-}
-.footer a {
-  color: #f9f9f9;
-}
-
-.nav-footer {
-  margin: -1rem -1rem 1rem;
-}
-.nav-footer li {
-  border-bottom: 1px solid #333333;
-}
-@media all and (min-width: 46.8em) {
-  .nav-footer li {
-    border: 0;
-    float: left;
-  }
-}
-.nav-footer a {
-  display: block;
-  padding: 1rem;
-}
-
-@media all and (min-width: 46.8em) {
-  .copyright {
-    float: right;
-  }
-}
-
-/*------------------------------------*\
-    $TEXT Styles
-\*------------------------------------*/
-/* Global Font Classes */
-.font-secondary {
-  font-family: Georgia, Times, "Times New Roman", serif;
-}
-
-.intro {
-  font-size: 1.0625em;
-  font-weight: bold;
-}
-
-.pullquote {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 1.4375em;
-}
-
-.text a {
-  text-decoration: underline;
-}
-.text ul {
-  list-style: disc;
-  margin: 0 0 1rem 1.2em;
-}
-.text ul ul {
-  margin-bottom: 0;
-}
-.text ol {
-  list-style: decimal;
-  margin: 0 0 1rem 1.2em;
-}
-.text ol ol {
-  margin-bottom: 0;
-}
-
-/* Review Grade Tile */
-.grade {
-  display: block;
-  font-weight: bold;
-  background: gray;
-  color: white;
-  min-height: 4.5rem;
-  padding-top: 1.5rem;
-  text-align: center;
-}
-
-/* Eyebrow */
-.eyebrow {
-  background: #333333;
-  color: white;
-  padding: 0.2em;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.eyebrow-image {
-  position: relative;
-}
-.eyebrow-image img {
-  position: relative;
-  z-index: 0;
-}
-.eyebrow-image .eyebrow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-/*------------------------------------*\
-    $COMPONENTS
-\*------------------------------------*/
-/* Icon Font */
-@font-face {
-  font-family: 'icons';
-  src: url("../fonts/icons.eot");
-  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-  font-family: 'icons';
-  content: attr(data-icon);
-  speak: none;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
-.icon-twitter:before, .icon-stumbleupon:before, .icon-pinterest:before, .icon-linkedin:before, .icon-google-plus:before, .icon-search:before, .icon-play:before, .icon-menu:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-bubble:before, .icon-facebook:before, .icon-feed:before, .icon-youtube:before, .icon-tag:before, .icon-tumblr:before, .icon-instagram, .icon-podcast, .icon-apple, .icon-android, .icon-arrow:after, .icon-envelope:before {
-  font-family: 'icons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
-.icon-twitter:before {
-  content: "\74";
-}
-
-.icon-stumbleupon:before {
-  content: "\75";
-}
-
-.icon-pinterest:before {
-  content: "\70";
-}
-
-.icon-linkedin:before {
-  content: "\69";
-}
-
-.icon-google-plus:before {
-  content: "\67";
-}
-
-.icon-search:before {
-  content: "\73";
-}
-
-.icon-play:before {
-  content: "\61";
-}
-
-.icon-menu:before {
-  content: "\21";
-}
-
-.icon-arrow-left:before {
-  content: "\23";
-}
-
-.icon-arrow-right:before {
-  content: "\24";
-}
-
-.icon-bubble:before {
-  content: "\25";
-}
-
-.icon-facebook:before {
-  content: "\66";
-}
-
-.icon-feed:before {
-  content: "\27";
-}
-
-.icon-youtube:before {
-  content: "\79";
-}
-
-.icon-tag:before {
-  content: "\28";
-}
-
-.icon-tumblr:before {
-  content: "\6d";
-}
-
-.icon-instagram:before {
-  content: "\22";
-}
-
-.icon-podcast:before {
-  content: "\26";
-}
-
-.icon-android:before {
-  content: "\29";
-}
-
-.icon-apple:before {
-  content: "\2a";
-}
-
-.icon-envelope:before {
-  content: "\2b";
-}
-
-.icon-arrow:after {
-  content: "\61";
-  display: inline-block;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-.icon-play:before {
-  font-size: 0.7rem;
-  padding-left: 0.2em;
-}
-
-.icon-play-box {
-  display: block;
-  margin-left: 2rem;
-}
-
-.icon-play-box:before {
-  padding: 0.25rem;
-  background: gray;
-  color: white;
-  margin-left: -1.7rem;
-  margin-right: 0.5rem;
-}
-
-/*------------------------------------*\
-    $BUTTONS
-\*------------------------------------*/
+/**
+* Basic Styles
+*
+* @desc Basic and common styles. Formats for every device live in Common Styles, for device-specific stylings use Mobile First approach.
+* @author [XX]
+* @dependency _app_settingsscss
+*/
+/* line 1, ../patterns/atoms/buttons/scss/_buttons.scss */
 .btn {
-  display: inline-block;
-  background: #333333;
-  color: white;
-  line-height: 1;
-  font-weight: bold;
-  padding: 1rem;
-  border: 0;
-  text-align: center;
-}
-.btn:hover, .btn:focus {
-  color: white;
-}
-.btn.disabled {
-  background: #eeeeee;
-  color: #bbbbbb;
-}
-
-.btn-small {
-  padding: 0.5rem;
-}
-
-.btn-large {
-  padding: 0.5rem;
-  text-transform: uppercase;
-  background: gray;
-  font-size: 1.4rem;
-  font-weight: normal;
-}
-
-.text-btn {
-  font-style: italic;
-}
-
-/* Generic Placeholder Brick: REMOVE FOR PRODUCTION */
-.brick {
-  background: #dcdddc;
-  padding: 2rem;
-  text-align: center;
-  font-weight: bold;
-  border-bottom: 1px solid #eeeeee;
-}
-
-/* Block */
-.block {
-  overflow: hidden;
-}
-.block p:last-child {
-  margin-bottom: 0;
-}
-
-.headline {
-  line-height: 1.2;
-}
-
-/* Hero Block */
-.block-hero {
-  margin-bottom: 0.5rem;
-}
-.block-hero .b-thumb img {
   display: block;
-}
-@media all and (min-width: 50em) {
-  .block-hero {
-    position: relative;
-  }
-  .block-hero .b-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 1.5rem;
-  }
+  padding: 5px 10px;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
 }
 
-/* Block Thumbnail with Headline */
-.block-thumb {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-}
-.block-thumb .b-inner {
-  display: table-row;
-  vertical-align: top;
-  overflow: hidden;
-}
-@media all and (min-width: 29.75em) {
-  .block-thumb .b-thumb {
-    display: table-cell;
-    vertical-align: top;
-    width: 30%;
-    max-width: 10em;
-  }
-  .block-thumb .b-thumb img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-}
-@media all and (min-width: 29.75em) {
-  .block-thumb .b-text {
-    display: table-cell;
-    width: 70%;
-    padding: 0 1rem;
-  }
-}
+/**
+* Example
+*
+* @desc Just an example file
+* @author [XX]
+* @dependency _app_settingsscss
+*/
+/**
+* Example
+*
+* @desc Just an example file
+* @author [XX]
+* @dependency _app_settingsscss
+*/
+/**
+* Example
+*
+* @desc Just an example file
+* @author [XX]
+* @dependency _app_settingsscss
+*/
 
-/* Block Headline Summary */
-.block-headline-summary a {
-  display: block;
-  padding: 0.5rem;
-}
-
-/* Block Inset */
-.block-inset {
-  position: relative;
-}
-.block-inset .b-thumb {
-  position: relative;
-  z-index: 0;
-}
-.block-inset .b-thumb img {
-  display: block;
-}
-
-/* Hero Block */
-.block-inset {
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-.block-inset .headline {
-  font-size: 1.1em;
-}
-.block-inset .b-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 0.5rem;
-}
-
-/* Block Thumb with Summary */
-.block-thumb-summary .b-thumb {
-  float: left;
-  width: 50%;
-}
-.block-thumb-summary .b-text {
-  margin-left: 50%;
-  padding: 0.5rem;
-}
-
-.inline-list li {
-  display: inline-block;
-}
-
-/* Social List */
-.social-list li {
-  margin: 0 0.4rem 1rem 0;
-}
-.social-list a {
-  font-size: 1.6em;
-}
-
-/* Headline List */
-.headline-list {
-  margin-bottom: 1rem;
-}
-.headline-list.flush {
-  margin: 0;
-}
-.headline-list h4 {
-  font-weight: normal;
-}
-.headline-list li {
-  padding: 0.25rem 0;
-  border-top: 1px solid #dddddd;
-}
-
-/* Post List */
-.post-list li {
-  margin-bottom: 1rem;
-}
-
-/* Bullet List */
-.bullet-list {
-  list-style: square;
-  margin: 0 0 1em 1.2em;
-  line-height: 1.3;
-}
-.bullet-list li {
-  margin-bottom: 1rem;
-}
-
-/* Text List */
-.text-list {
-  margin: 0 0 1em;
-  line-height: 1.3;
-}
-.text-list li {
-  margin-bottom: 1rem;
-}
-
-.tooltip-container {
-  display: inline-block;
-  position: relative;
-}
-.tooltip-container:hover .tooltip {
-  display: block;
-}
-
-.tooltip-link {
-  background: #f9f9f9;
-}
-
-.tooltip {
-  display: none;
-  position: absolute;
-  top: 1.5em;
-  left: 0;
-  width: 18em;
-  padding: 1rem;
-  background: white;
-  border: 1px solid gray;
-  box-shadow: 0.3em 0.3em 1em 0 rgba(0, 0, 0, 0.2);
-}
-.tooltip h2 {
-  margin-top: 0;
-}
-@media all and (min-width: 24em) {
-  .tooltip {
-    width: 22em;
-  }
-}
-@media all and (min-width: 29.75em) {
-  .tooltip {
-    width: 27em;
-  }
-}
-@media all and (min-width: 39.8em) {
-  .tooltip {
-    width: 30em;
-  }
-}
-
-.accordion {
-  margin-bottom: 1rem;
-}
-
-.acc-handle {
-  background: #131313;
-  color: white;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: bold;
-  display: block;
-  position: relative;
-  padding: 0.5rem;
-  border-bottom: 1px solid #dddddd;
-}
-.acc-handle:after {
-  content: "+";
-  float: right;
-}
-.acc-handle:hover {
-  color: white;
-  background: #333333;
-}
-.acc-handle.active {
-  background: #333333;
-}
-.acc-handle.active:after {
-  content: "-";
-}
-
-.tabs {
-  overflow: hidden;
-}
-.tabs ul {
-  display: table;
-  width: 100%;
-}
-.tabs li {
-  display: table-cell;
-  text-align: center;
-  border-right: 1px solid #dddddd;
-}
-.tabs li:last-child {
-  border-right: 0;
-}
-.tabs a {
-  display: block;
-  padding: 0.5rem;
-  background: gray;
-}
-.tabs a:hover, .tabs a:focus {
-  background: #dddddd;
-}
-.tabs a.active {
-  background: #333333;
-  color: white;
-}
-
-.section {
-  margin: 0 0 1rem;
-}
-
-.section-title {
-  margin-bottom: 0.5rem;
-}
-
-.article-header h1 {
-  font-size: 2.5em;
-}
-
-.byline {
-  font-size: 0.875em;
-  font-style: italic;
-  margin-bottom: 0.5rem;
-}
-
-/* Wordpress Caption */
-.wp-caption-text {
-  font-style: italic;
-}
-
-.review-summary .grade {
-  width: 4.5em;
-  float: left;
-  margin: 0 0.5rem 0 0;
-}
-.review-summary .summary-text {
-  margin-left: 5em;
-}
-
-.social-share {
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-.social-share li {
-  float: left;
-  margin-right: 0.25rem;
-}
-.social-share a {
-  background: #333333;
-  color: white;
-  display: block;
-  padding: 0.5rem;
-}
-.social-share a:hover {
-  background: gray;
-}
-
-.comments li {
-  margin-bottom: 1rem;
-}
-
-.comment-container {
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-
-.comment-meta {
-  float: left;
-  width: 6.5em;
-}
-.comment-meta img {
-  display: block;
-  border: 1px solid #eeeeee;
-  margin-bottom: 0.5rem;
-}
-
-.comment-name {
-  font-size: 0.75em;
-}
-
-.comment-text {
-  margin-left: 9em;
-}
+/*# sourceMappingURL=app.css.map */

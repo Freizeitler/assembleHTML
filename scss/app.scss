@@ -11,11 +11,14 @@
 // Base Styles
 @import "base";
 
-// Modules
-@import "modules/example";
+// Atoms
+@import "../patterns/atoms/buttons/scss/buttons";
 
-// Sections
-@import "sections/example";
+// Molecules
+@import "../patterns/molecules/buttons/scss/example";
+
+// Organisms
+@import "../patterns/organisms/buttons/scss/";
 
 // Pages
-@import "pages/example";
+@import "../patterns/pages/buttons/scss/example";
