@@ -1,17 +1,17 @@
 <div class="page" id="page">
 	{{ organism 'header' }}
 	<div role="main">
-		<h1 class="section-title">Our Outdoor Blog</h1>
+		<h1 class="section-title">Test Page</h1>
 		<div class="l-two-col">
 			<div class="l-main">
 				<section class="section latest-posts">
 
 					<ul class="post-list">
-						{{#latest-posts}}
+						{{#each blog.latest-posts}}
 							<li>{{ molecule 'media-block' }}</li>
-						{{/latest-posts}}
+						{{/each}}
 					</ul>
-					<a href="#" class="text-btn">View more posts</a>
+					<a href="#" class="text-btn">{{ button-label }}</a>
 				</section>
 				{{ molecule 'pagination' }}
 			</div><!--end l-main-->

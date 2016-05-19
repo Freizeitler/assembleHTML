@@ -42,3 +42,6 @@ bower_components
 _gh_pages
 _site
 _draft
+
+# Files to ignore
+_README.md
