@@ -146,7 +146,7 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         files: [{
-          expand: true,
+          expand: false,
           src: 'js/app.pkgd.js',
           dest: 'js-min/app.pkgd.js'
         }]
@@ -158,7 +158,7 @@ module.exports = function(grunt) {
 		    files: [
 		      // includes files within path
 		      {expand: true, src: ['css/**/*'], dest: '_dist/public/', filter: 'isFile'},
-		      {expand: true, src: ['js/**/*'], dest: '_dist/public/', filter: 'isFile'},
+		      {expand: true, src: ['js-min/**/*'], dest: '_dist/public/', filter: 'isFile'},
 		      {expand: true, src: ['images/**/*'], dest: '_dist/public/', filter: 'isFile'}
 		    ],
 		  }

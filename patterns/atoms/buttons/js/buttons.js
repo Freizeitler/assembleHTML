@@ -2,4 +2,4 @@
  * Buttons JS
  */
 
-$('.btn').on('click', function{});
+$('.btn').on('click', function() { });
