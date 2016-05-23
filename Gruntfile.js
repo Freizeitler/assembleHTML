@@ -167,7 +167,7 @@ module.exports = function(grunt) {
     watch: {
 
 			html: {
-        files: ['*.html'],
+        files: ['*.html', '<%= site.patterns %>/*hbs'],
         options: {
           livereload: true
         }
