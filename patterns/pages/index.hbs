@@ -1,5 +1,20 @@
-<!-- Prebuild Content with Emmet -->
-header.header[role="banner"]+(nav.nav[role="navigation"]>ul>li*5>a[href="#" title="Fill me for link No.$!"]{Navi0$})+(main.main[role="main"]>(ul.breadcrumbs>li[itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"]*3>a[title="Breadcrumb$" href="#" itemprop="url"]>span[itemprop="title"]{Breadcrumb$})+h1>lorem3)+aside.aside[role="complementary"]+footer.footer[role="contentinfo"]
+---
+
+title: Welcome...
+
+button:
+ text: "&hellip;button"
+button-alert:
+ text: "&hellip;alert-button"
+
+---
+
+<h1>{{ title }}</h1>
+<h2>Here comes a&hellip;</h2>
+
+{{ atom "button" button }} 
+and a 
+{{ atom "button" button-alert }}
 
 <!-- Get customized modernizr from http://modernizr.com/download/ -->
 <script src="vendor/modernizr.custom.67687.js"></script>

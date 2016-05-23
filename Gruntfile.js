@@ -79,7 +79,7 @@ module.exports = function(grunt) {
           }
         },
         src: ['<%= site.patterns %>/**/*.hbs'],
-        dest: '<%= site.dest %>/patterns/'
+        dest: '<%= site.dest %>'
       },
     },
     /**
