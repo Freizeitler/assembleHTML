@@ -79,7 +79,7 @@ module.exports = function(grunt) {
           }
         },
         src: ['<%= site.patterns %>/**/*.hbs'],
-        dest: '<%= site.dest %>/patterns/'
+        dest: '<%= site.dest %>'
       },
     },
     /**
@@ -167,7 +167,7 @@ module.exports = function(grunt) {
     watch: {
 
 			html: {
-        files: ['*.html'],
+        files: ['*.html', '<%= site.patterns %>/*hbs'],
         options: {
           livereload: true
         }

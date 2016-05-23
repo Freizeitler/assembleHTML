@@ -502,36 +502,14 @@ th {
 * @author [XX]
 * @dependency _app_settingsscss
 */
-/* line 1, ../patterns/atoms/buttons/scss/_buttons.scss */
+/* line 1, ../patterns/atoms/button/scss/_button.scss */
 .btn {
-  display: block;
-  padding: 5px 10px;
   background: #ddd;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
+  border: 0;
+  padding: 5px 10px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 }
-
-/**
-* Example
-*
-* @desc Just an example file
-* @author [XX]
-* @dependency _app_settingsscss
-*/
-/**
-* Example
-*
-* @desc Just an example file
-* @author [XX]
-* @dependency _app_settingsscss
-*/
-/**
-* Example
-*
-* @desc Just an example file
-* @author [XX]
-* @dependency _app_settingsscss
-*/
 
 /*# sourceMappingURL=app.css.map */
