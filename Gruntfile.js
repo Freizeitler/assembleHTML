@@ -1,11 +1,3 @@
-/*
- * assemble-pattern-lab <https://github.com/assemble/assemble-pattern-lab>
- *
- * Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
- * Licensed under the MIT license.
- */
-
-
 module.exports = function(grunt) {
 
   'use strict';
@@ -61,7 +53,7 @@ module.exports = function(grunt) {
         options: {
           permalinks: {
             preset: 'pretty',
-            structure: ':pattern/:group',
+            structure: ':pattern',
             patterns: [
               {
                 pattern: /:pattern/,
@@ -69,17 +61,17 @@ module.exports = function(grunt) {
                   return this.src.split('/')[1];
                 }
               },
-              {
+              /*{
                 pattern: /:group/,
                 replacement: function(src) {
                   return this.src.split('/')[2];
                 }
-              }
+              }*/
             ]
           }
         },
         src: ['<%= site.patterns %>/**/*.hbs'],
-        dest: '<%= site.dest %>'
+        dest: '<%= site.dest %>/_patterns/'
       },
     },
     /**
@@ -116,7 +108,7 @@ module.exports = function(grunt) {
 
     autoprefixer: {
       options: {
-        browsers: ['last 100 version'],
+        browsers: ['last 3 version'],
         map: true
       },
       multiple_files: {
@@ -127,18 +119,18 @@ module.exports = function(grunt) {
       }
     },
 
-    csswring: {
-      options: {
-        map: true,
-        preserveHacks: true
-      },
-      minify: {
-        expand: true,
-        flatten: true,
-        src: ['css/**/*.css'],
-        dest: 'css-min/'
+    /*cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          flatten: true,
+          cwd: 'css/',
+          src: ['*.css', '!*.min.css'],
+          dest: '_dist/assets/css',
+          ext: '.min.css'
+        }]
       }
-    },
+    },*/
 
     uglify: {
       js: {
@@ -148,7 +140,7 @@ module.exports = function(grunt) {
         files: [{
           expand: false,
           src: 'js/app.pkgd.js',
-          dest: 'js-min/app.pkgd.js'
+          dest: 'js/app.pkgd.js'
         }]
       }
     },
@@ -157,9 +149,9 @@ module.exports = function(grunt) {
 		  main: {
 		    files: [
 		      // includes files within path
-		      {expand: true, src: ['css/**/*'], dest: '_dist/public/', filter: 'isFile'},
-		      {expand: true, src: ['js-min/**/*'], dest: '_dist/public/', filter: 'isFile'},
-		      {expand: true, src: ['images/**/*'], dest: '_dist/public/', filter: 'isFile'}
+		      {expand: true, src: ['css/**/*'], dest: '_dist/assets/', filter: 'isFile'},
+		      {expand: true, src: ['js-min/**/*'], dest: '_dist/assets/', filter: 'isFile'},
+		      {expand: true, src: ['images/**/*'], dest: '_dist/assets/', filter: 'isFile'}
 		    ],
 		  }
 		},
@@ -190,7 +182,7 @@ module.exports = function(grunt) {
 
       sass: {
         files: ['scss/**/*.scss', '<%= site.patterns %>/**/*.scss'],
-        tasks: ['compass:dist', 'autoprefixer', 'csswring:minify'],
+        tasks: ['compass:dist', 'autoprefixer'/*, 'cssmin:target'*/],
         options: {
           livereload: true,
           spawn : false       // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions.
@@ -213,11 +205,11 @@ module.exports = function(grunt) {
   grunt.registerTask('assemble-it', ['assemble', 'copy:main']);
 
   grunt.registerTask('clean-build', ['clean:build']);
-  grunt.registerTask('csswring', ['csswring:minify']);
+  grunt.registerTask('cssmin', ['cssmin:target']);
 
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', /*'csswring:minify',*/ 'copy:main']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', /*'cssmin:target', */'copy:main']
   );
 };
