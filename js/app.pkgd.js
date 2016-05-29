@@ -1,10 +1,2 @@
-$(document).ready(function() {
-});
-
-/**
- * Buttons JS
- */
-
-$('.btn').on('click', function() { });
-
+$(document).ready(function(){});
 //# sourceMappingURL=app.pkgd.js.map

@@ -10,7 +10,7 @@ title:          "Assemble &raquo; Pattern Lab"
 
 base:           _dist
 dest:           <%= site.base %>
-assets:         <%= site.base %>/public
+assets:         <%= site.base %>/assets
 
 # =============================================
 # SOURCE CONFIG
