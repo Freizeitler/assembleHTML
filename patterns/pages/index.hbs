@@ -1,20 +1,22 @@
 ---
 
 title: Welcome...
-secondHeadline: Let's start with a&hellip;  
+secondHeadline: Let's start with a&hellip;
 
-button:
- text: "&hellip;button"
+button-01:
+ button:
+  text: "&hellip;button"
 button-alert:
- text: "&hellip;alert-button"
+ button:
+  text: "&hellip;alert-button"
 
 ---
 
 <h1>{{{ title }}}</h1>
 <h2>{{{ secondHeadline }}}</h2>
 
-{{ atom "button" button }} 
-and a 
+{{ atom "button" button-01 }}
+and a
 {{ atom "button" button-alert }}
 
 <!-- Get customized modernizr from http://modernizr.com/download/ -->
@@ -26,7 +28,7 @@ and a
 <!--<script src="js-min/app.pkgd.js"></script>-->
 <!-- Load Stylesheets asynchronous (lend from https://css-tricks.com/authoring-critical-fold-css/) -->
 <script>function loadCSS(e){var n=window.document.createElement("link"),t=window.document.getElementsByTagName("head")[0];n.rel="stylesheet",n.href=e,n.media="only x",t.parentNode.insertBefore(n,t),setTimeout(function(){n.media="all"},0)}loadCSS("css/app.css");/*loadCSS('css-min/app.css');*/</script>
-<noscript> 
+<noscript>
   <!--<link rel="stylesheet" href="css-min/app.css">-->
 </noscript>
 <!-- searchAction for Google's Search Box in the SERPs. Change example.com and input's name. -->
