@@ -30,10 +30,11 @@
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <!--<script src="js/app.js"></script>-->
         <script>
+            var fileExt = ".html";
             $.ajax({
-              url: "_patterns/atoms/",
+              url: "_patterns/atoms/button",
               success: function(data){
-                 $(data).find("a:contains(.html)").each(function(){
+                 $(data)/*.find("a:contains(" + fileExt + ")")*/.each(function(){
                     $this = $(this);
                     console.log($this);
                     // will loop through
