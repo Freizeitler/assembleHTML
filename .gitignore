@@ -39,7 +39,6 @@ temp
 vendor
 node_modules
 bower_components
-_dist
 _site
 _draft
 .sass-cache

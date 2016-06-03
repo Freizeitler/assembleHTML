@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="de" itemscope itemtype="http://schema.org/WebPage">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- [Title 50-60 characters] -->
+		<title itemprop="name">AssembleHTML</title>
+
+		<meta name="description" itemprop="description" content="[Roughly 155 Characters]">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Image for G+ post (app. 560 x 560) -->
+		<meta itemprop="image" content="[http://www.example.com/image.jpg]">
+		<link href="[https://plus.google.com/XXX]" rel="author">
+		<!-- if an author exists on G+ -->
+		<link href="[https://plus.google.com/XXX]" rel="publisher">
+		<!-- if a business page exists on G+ -->
+
+		<meta name="twitter:title" content="[Page Title]">
+		<meta name="twitter:description" content="[Page description less than 200 characters]">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@publisher_handle">
+		<meta name="twitter:creator" content="@author_handle">
+		<!-- Twitter Summary card images must be at least 120x120px -->
+		<meta name="twitter:image" content="[http://www.example.com/image.jpg]">
+
+		<meta property="og:title" content="[Title Here]" />
+		<meta property="og:description" content="[Description Here]" />
+		<meta property="og:site_name" content="[Site Name, i.e. Freizeitler]" />
+		<meta property="fb:admins" content="[Facebook numeric ID]" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="[http://www.example.com/]" />
+		<meta property="og:image" content="[http://example.com/image.jpg]" />
+
+		<link rel="apple-touch-icon" href="[apple-touch-icon.png]">
+
+		<style type="text/css">
+			/* Above-The-Fold-Styles go here */
+		</style>
+
+
+  	<link rel="stylesheet" href="./assets/css/app.css">
+
+		<!-- If IE8 should be supported, anyway -->
+		<!--[if lt IE 9]>
+			<script src="vendor/html5shiv.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+	
+
+<h1>Welcome...</h1>
+<h2>Let's start with a&hellip;</h2>
+
+<button class="btn">&hellip;button</button>
+
+and a
+<button class="btn">&hellip;alert-button</button>
+
+
+<!-- Get customized modernizr from http://modernizr.com/download/ -->
+<script src="vendor/modernizr.custom.67687.js"></script>
+<!-- adjust jQuery version for googleapis file -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="vendor/bower/jquery/dist/jquery.min.js"><\/script>')</script>
+<script src="js/app.js"></script>
+<!--<script src="js-min/app.pkgd.js"></script>-->
+<!-- Load Stylesheets asynchronous (lend from https://css-tricks.com/authoring-critical-fold-css/) -->
+<script>function loadCSS(e){var n=window.document.createElement("link"),t=window.document.getElementsByTagName("head")[0];n.rel="stylesheet",n.href=e,n.media="only x",t.parentNode.insertBefore(n,t),setTimeout(function(){n.media="all"},0)}loadCSS("css/app.css");/*loadCSS('css-min/app.css');*/</script>
+<noscript>
+  <!--<link rel="stylesheet" href="css-min/app.css">-->
+</noscript>
+<!-- searchAction for Google's Search Box in the SERPs. Change example.com and input's name. -->
+<script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","url": "[http://www.example.com/]","potentialAction": {"@type": "SearchAction","target": "[http://example.com/search/?search_terms={search_terms}]", "query-input": "required name=search_terms"}}</script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>(function(e,t,n,r,i,s,o){e["GoogleAnalyticsObject"]=i;e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},e[i].l=1*new Date;s=t.createElement(n),o=t.getElementsByTagName(n)[0];s.async=1;s.src=r;o.parentNode.insertBefore(s,o)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create","[UA-XXXXXXX-X]","auto");ga("set","anonymizeIp",true);ga('require', 'displayfeatures');ga("send","pageview")</script>
+
+
+	</body>
+</html>
+
