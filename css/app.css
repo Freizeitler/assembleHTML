@@ -222,9 +222,7 @@ figure {
  */
 /* line 344, ../vendor/bower/normalize-scss/_normalize.scss */
 hr {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
 }
 
@@ -352,9 +350,7 @@ input {
 /* line 478, ../vendor/bower/normalize-scss/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -379,9 +375,7 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   /* 2 */
 }
 
@@ -504,11 +498,25 @@ th {
 */
 /* line 1, ../patterns/atoms/button/scss/_button.scss */
 .btn {
-  background: #ddd;
+  background: green;
+  color: #fff;
   border: 0;
   padding: 5px 10px;
-  -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
+  border-radius: 2px;
 }
+
+/* line 1, ../patterns/molecules/buttonLabel/scss/_buttonLabel.scss */
+.button-label {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  background-color: #eee;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
 /*# sourceMappingURL=app.css.map */

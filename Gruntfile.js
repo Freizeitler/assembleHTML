@@ -51,6 +51,7 @@ module.exports = function(grunt) {
 
       patterns: {
         options: {
+          layout: 'styleguide',
           permalinks: {
             preset: 'pretty',
             structure: ':pattern',
@@ -146,6 +147,7 @@ module.exports = function(grunt) {
 		      {expand: true, src: ['css/**/*'], dest: '_dist/assets/', filter: 'isFile'},
 		      {expand: true, src: ['js-min/**/*'], dest: '_dist/assets/', filter: 'isFile'},
 		      {expand: true, src: ['images/**/*'], dest: '_dist/assets/', filter: 'isFile'},
+          // copy styleguide files
           {expand: true, flatten: true, src: ['templates/styleguide/**/*'], dest: '_dist/_styleguide/'}
 		    ],
 		  }
