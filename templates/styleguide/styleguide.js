@@ -27,7 +27,7 @@ $.getJSON( 'config.json', function(data) {
 
   // Set up color boxes
   $.each(colors, function(i, item) {
-    $('#colors').append('<div class="color-cube" style="background-color: ' + item + ';"></div>');
+    $('#colors').append('<div class="color-cube" style="background-color: ' + item + ';"><div>' + item + '</div></div>');
   });
 
   // Set up sections

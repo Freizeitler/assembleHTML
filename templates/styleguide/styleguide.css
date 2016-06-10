@@ -82,7 +82,17 @@ p {
     text-decoration: none;
 }
 .color-cube {
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
     display: inline-block;
+    box-sizing: border-box;
+    padding: 15px 0;
+    text-align: center;
+}
+.color-cube div {
+    background: #fff;
+    padding: 3px 6px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 0.8em;
 }
