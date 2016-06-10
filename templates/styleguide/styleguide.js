@@ -26,21 +26,30 @@ $.getJSON( 'config.json', function(data) {
 
   // Set up sections
   $.each(atoms, function(key, val) {
-    var template = '<div class="' + key + '"><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/atoms/' + key + '/index.html"></iframe><pre class="snippet"></pre></div>';
+    var template = '<div class="' + key + '"><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/atoms/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
     $('#atoms').append(template);
-    //$('.snippet').load('_patterns/atoms/' + key + '/index.html #snippet').html().replace(/&lt;(?=\/xmp[> \n\r\t\f\/])/gi, '<');
     $.get('_patterns/atoms/' + key + '/index.html', function(data) {
       var origHTML = $(data).filter('#snippet');
-      //var newHTML = origHTML.text(origHTML).html();
-      $('.snippet').text(origHTML).html();
+      var innerHTML = origHTML.children().prop('outerHTML');
+      $('.snippet-' + key).html(innerHTML);
     });
   });
    $.each(molecules, function(key, val) {
-    var template = '<div><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/molecules/' + key + '/index.html"></iframe></div>';
+    var template = '<div><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/molecules/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
     $('#molecules').append(template);
+    $.get('_patterns/molecules/' + key + '/index.html', function(data) {
+      var origHTML = $(data).filter('#snippet');
+      var innerHTML = origHTML.children().prop('outerHTML');
+      $('.snippet-' + key).html(innerHTML);
+    });
   });
     $.each(organisms, function(key, val) {
-    var template = '<div><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/organisms/' + key + '/index.html"></iframe></div>';
+    var template = '<div><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/organisms/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
     $('#organisms').append(template);
+    $.get('_patterns/organisms/' + key + '/index.html', function(data) {
+      var origHTML = $(data).filter('#snippet');
+      var innerHTML = origHTML.children().prop('outerHTML');
+      $('.snippet-' + key).html(innerHTML);
+    });
   });
 });
