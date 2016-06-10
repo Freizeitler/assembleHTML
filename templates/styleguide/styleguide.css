@@ -46,7 +46,7 @@ xmp:before {
     border-radius: 2px 2px 0 0;
 }
 .header {
-    height: 140px;
+    min-height: 140px;
     padding-left: 250px;
     margin: 0 -30px;
 }

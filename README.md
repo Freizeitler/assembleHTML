@@ -2,7 +2,9 @@
 ---
 **Atomic Design** meets a **Living Styleguide**
 
-Assemble static HTML and the used Atomic Design Patterns with the help of handlebars and assemble.io. It produces a living styleguide on the fly. Based partly on https://github.com/assemble/assemble-pattern-lab by Jon Schlinkert
+Assemble static HTML and the used Atomic Design Patterns with the help of handlebars and assemble.io. It produces a living styleguide on the fly. Based partly on https://github.com/assemble/assemble-pattern-lab by Jon Schlinkert.
+
+Why another Atomic Design boilerplate? Because this one has as less dependencies as possible and most of all, if you generate your code with this tool, you'll have always the same code in your living styleguide as you have in production.
 
 
 ### Installation and usage
