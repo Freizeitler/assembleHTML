@@ -21,7 +21,32 @@
             height: auto;
             min-width: 320px;
             background-color: #fff;
+            border: 1px dashed #ccc;
+        }
+        .navigation-wrapper {
+            padding: 10px;
             border: 1px solid #ccc;
+        }
+        .navigation > li {
+            padding-bottom: 10px;
+        }
+        .navigation > li:last-child {
+            padding-bottom: 0;
+        }
+        .navigation, .navigation ul {
+            list-style: none;
+            padding-left: 15px;
+        }
+        .navigation a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .navigation ul a:before {
+            content: '\02EA';
+            font-size: 1.2em;
+            position: relative;
+            top: -5px;
+            padding-right: 5px;
         }
         p {
             font-size: 0.9em;
@@ -36,8 +61,8 @@
         <h1 class="js-title">Welcome to the&hellip;</h1>
         <p class="js-intro"></p>
     </header>
-    <nav>
-        <ul class="js-navigation"></ul>
+    <nav class="navigation-wrapper">
+        <ul class="navigation js-navigation"></ul>
     </nav>
     <main class="js-content">
 
