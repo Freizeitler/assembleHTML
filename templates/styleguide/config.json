@@ -3,6 +3,11 @@
   "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
   "content": {
 
+    "colors": {
+      "description": "Define colors in config.json",
+      "codes": ["#eee", "rgba(75,75,75,1)", "#555555", "#333", "green"]
+    },
+
     "atoms": {
       "description": "Atoms are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
 

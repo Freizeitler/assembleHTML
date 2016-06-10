@@ -3,12 +3,18 @@ body {
     color: #666;
     padding: 0 30px;
 }
+h1, h2, h3, h4 {
+    margin: 0;
+}
 h2 {
     border-bottom: 1px dotted #ddd;
     margin-top: 60px;
 }
 a {
     color: inherit;
+}
+p {
+    font-size: 0.9em;
 }
 iframe {
     resize: both;
@@ -39,9 +45,18 @@ xmp:before {
     display: inline-block;
     border-radius: 2px 2px 0 0;
 }
+.header {
+    height: 140px;
+    padding-left: 250px;
+    margin: 0 -30px;
+}
 .navigation-wrapper {
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 50px 10px 60px 10px;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
 }
 .navigation > li {
     padding-bottom: 10px;
@@ -64,8 +79,8 @@ xmp:before {
     top: -5px;
     padding-right: 5px;
 }
-p {
-    font-size: 0.9em;
+.main {
+    margin-left: 220px;
 }
 .top-link {
     text-align: right;
@@ -80,4 +95,19 @@ p {
     top: 0;
     padding-right: 5px;
     text-decoration: none;
+}
+.color-cube {
+    width: 160px;
+    height: 160px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 15px 0;
+    text-align: center;
+}
+.color-cube div {
+    background: #fff;
+    padding: 3px 6px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 0.8em;
 }
