@@ -13,7 +13,8 @@ a {
 iframe {
     resize: both;
     overflow: auto;
-    width: auto;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     min-width: 320px;
     background-color: #fff;
