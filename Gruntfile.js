@@ -199,7 +199,7 @@ module.exports = function(grunt) {
   // The default task to run with the `grunt` command
   grunt.registerTask('default', ['watch', 'assemble']);
 
-  grunt.registerTask('assemble-it', ['assemble', 'copy:main']);
+  grunt.registerTask('assemble-html', ['assemble', 'copy:main']);
 
   grunt.registerTask('clean-build', ['clean:build']);
   grunt.registerTask('cssmin', ['cssmin:target']);

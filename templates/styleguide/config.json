@@ -1,0 +1,31 @@
+{
+  "title": "Styleguide",
+  "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+  "content": {
+
+    "atoms": {
+      "description": "Atoms are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+        "button": "This is a simple button"
+      }
+    },
+
+    "molecules": {
+      "description": "<strong>Molecules</strong> are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+        "buttonLabel": "A Button with a label"
+      }
+    },
+
+    "organisms": {
+      "description": "Organisms are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+
+      }
+    }
+
+  }
+}
