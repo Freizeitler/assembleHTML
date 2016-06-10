@@ -12,7 +12,7 @@ $.getJSON( 'config.json', function(data) {
   // Set up navigation + structure
   $.each(content, function(key, val) {
     $('.js-navigation').append('<li class="js-' + key + '"><a href="#' + key + '">' + key + '</a></li>');
-    $('.js-content').append('<section id="' + key + '"><h2>' + key + '</h2><p>' + this.description + '</p></section>');
+    $('.js-content').append('<section id="' + key + '"><h2>' + key + '</h2><p>' + this.description + '</p></section><p class="top-link"><a href="#top">to top</a></p>');
   });
   $.each(atoms, function(key, val) {
     $('.js-atoms').append('<ul><li><a href="#' + key + '">' + key + '</a></li></ul>');
