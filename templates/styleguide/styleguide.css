@@ -19,9 +19,25 @@ iframe {
     min-width: 320px;
     background-color: #fff;
     border: 1px dashed #ddd;
+    margin-bottom: 15px;
 }
 xmp {
     font: normal 1em/1.4 monospace;
+    position: relative;
+    border:1px dashed #ddd;
+    padding: 15px;
+}
+xmp:before {
+    content: 'HTML';
+    font-size: 0.7em;
+    position: absolute;
+    color: #fff;
+    background: #bbb;
+    top: -18px;
+    left: -1px;
+    padding: 3px 6px;
+    display: inline-block;
+    border-radius: 2px 2px 0 0;
 }
 .navigation-wrapper {
     padding: 10px;
