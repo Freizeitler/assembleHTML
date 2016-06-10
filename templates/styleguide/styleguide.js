@@ -32,7 +32,7 @@ $.getJSON( 'config.json', function(data) {
 
   // Set up sections
   $.each(atoms, function(key, val) {
-    var template = '<div class="' + key + '"><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/atoms/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
+    var template = '<div class="' + key + ' pattern"><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/atoms/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
     $('#atoms').append(template);
     $.get('_patterns/atoms/' + key + '/index.html', function(data) {
       var origHTML = $(data).filter('#snippet');
@@ -41,7 +41,7 @@ $.getJSON( 'config.json', function(data) {
     });
   });
    $.each(molecules, function(key, val) {
-    var template = '<div><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/molecules/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
+    var template = '<div class="' + key + ' pattern"><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/molecules/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
     $('#molecules').append(template);
     $.get('_patterns/molecules/' + key + '/index.html', function(data) {
       var origHTML = $(data).filter('#snippet');
@@ -50,7 +50,7 @@ $.getJSON( 'config.json', function(data) {
     });
   });
     $.each(organisms, function(key, val) {
-    var template = '<div><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/organisms/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
+    var template = '<div class="' + key + ' pattern"><h3 id="' + key + '">' + key + '</h3><p>' + val + '</p><iframe src="_patterns/organisms/' + key + '/index.html"></iframe><xmp class="snippet-' + key +' sg-code"></xmp></div>';
     $('#organisms').append(template);
     $.get('_patterns/organisms/' + key + '/index.html', function(data) {
       var origHTML = $(data).filter('#snippet');

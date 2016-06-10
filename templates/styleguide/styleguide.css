@@ -82,6 +82,9 @@ xmp:before {
 .main {
     margin-left: 220px;
 }
+.pattern {
+    padding-top: 30px;
+}
 .top-link {
     text-align: right;
 }
