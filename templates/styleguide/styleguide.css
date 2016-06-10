@@ -81,3 +81,8 @@ p {
     padding-right: 5px;
     text-decoration: none;
 }
+.color-cube {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}

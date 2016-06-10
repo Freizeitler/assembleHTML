@@ -5,6 +5,7 @@ $.getJSON( 'config.json', function(data) {
   var atoms = content.atoms.patterns;
   var molecules = content.molecules.patterns;
   var organisms = content.organisms.patterns;
+  var colors = content.colors.codes;
 
   $('.js-title').html(title);
   $('.js-intro').html(intro);
@@ -22,6 +23,11 @@ $.getJSON( 'config.json', function(data) {
   });
   $.each(organisms, function(key, val) {
     $('.js-organisms').append('<ul><li><a href="#' + key + '">' + key + '</a></li></ul>');
+  });
+
+  // Set up color boxes
+  $.each(colors, function(i, item) {
+    $('#colors').append('<div class="color-cube" style="background-color: ' + item + ';"></div>');
   });
 
   // Set up sections
