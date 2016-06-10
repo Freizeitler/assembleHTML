@@ -19,6 +19,9 @@ iframe {
     background-color: #fff;
     border: 1px dashed #ddd;
 }
+xmp {
+    font: normal 1em/1.4 monospace;
+}
 .navigation-wrapper {
     padding: 10px;
     border: 1px solid #ddd;
