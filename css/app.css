@@ -504,6 +504,10 @@ th {
   padding: 5px 10px;
   border-radius: 2px;
 }
+/* line 8, ../patterns/atoms/button/scss/_button.scss */
+.btn:hover {
+  background: gray;
+}
 
 /* line 1, ../patterns/molecules/buttonLabel/scss/_buttonLabel.scss */
 .button-label {
