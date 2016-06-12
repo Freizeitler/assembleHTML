@@ -1,22 +1,22 @@
-body {
+.styleguide-body {
     font: normal 1em/1.4 sans-serif;
     color: #666;
     padding: 0 30px;
 }
-h1, h2, h3, h4 {
+.styleguide-h1, .styleguide-h2, .styleguide-h3, .styleguide-h4 {
     margin: 0;
 }
-h2 {
+.styleguide-h2 {
     border-bottom: 1px dotted #ddd;
     margin-top: 60px;
 }
-a {
+.styleguide-a {
     color: inherit;
 }
-p {
+.styleguide-p {
     font-size: 0.9em;
 }
-iframe {
+.styleguide-iframe {
     resize: both;
     overflow: auto;
     width: 100%;
@@ -27,13 +27,13 @@ iframe {
     border: 1px dashed #ddd;
     margin-bottom: 15px;
 }
-xmp {
+.styleguide-xmp {
     font: normal 1em/1.4 monospace;
     position: relative;
     border:1px dashed #ddd;
     padding: 15px;
 }
-xmp:before {
+.styleguide-xmp:before {
     content: 'HTML';
     font-size: 0.7em;
     position: absolute;
@@ -45,53 +45,56 @@ xmp:before {
     display: inline-block;
     border-radius: 2px 2px 0 0;
 }
-.header {
+.styleguide-header {
     min-height: 140px;
     padding-left: 250px;
     margin: 0 -30px;
 }
-.navigation-wrapper {
-    padding: 50px 10px 60px 10px;
+.styleguide-navigation-wrapper {
+    padding: 10px 10px 60px 10px;
     border-right: 1px solid #ddd;
     position: fixed;
     left: 0;
     top: 0;
     width: 200px;
 }
-.navigation > li {
+.styleguide-navigation-wrapper h2 {
+    margin-top: 0;
+}
+.styleguide-navigation > li {
     padding-bottom: 10px;
 }
-.navigation > li:last-child {
+.styleguide-navigation > li:last-child {
     padding-bottom: 0;
 }
-.navigation, .navigation ul {
+.styleguide-navigation, .styleguide-navigation ul {
     list-style: none;
     padding-left: 15px;
 }
-.navigation a {
+.styleguide-navigation a {
     color: inherit;
     text-decoration: none;
 }
-.navigation ul a:before {
+.styleguide-navigation ul a:before {
     content: '\02EA';
     font-size: 1.2em;
     position: relative;
     top: -5px;
     padding-right: 5px;
 }
-.main {
+.styleguide-main {
     margin-left: 220px;
 }
-.pattern {
+.styleguide-pattern {
     padding-top: 30px;
 }
-.top-link {
+.styleguide-top-link {
     text-align: right;
 }
-.top-link a {
+.styleguide-top-link a {
     text-decoration: none;
 }
-.top-link a:before {
+.styleguide-top-link a:before {
     content: '\2191';
     font-size: 1.2em;
     position: relative;
@@ -99,7 +102,7 @@ xmp:before {
     padding-right: 5px;
     text-decoration: none;
 }
-.color-cube {
+.styleguide-color-cube {
     width: 160px;
     height: 160px;
     display: inline-block;
@@ -107,7 +110,7 @@ xmp:before {
     padding: 15px 0;
     text-align: center;
 }
-.color-cube div {
+.styleguide-color-cube div {
     background: #fff;
     padding: 3px 6px;
     border-radius: 2px;
