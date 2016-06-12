@@ -1,3 +1,5 @@
+/*jslint browser: true*/ /*global  $*/
+'use strict';
 $.getJSON( 'config.json', function(data) {
   var title = data.title || '';
   var intro = data.intro || '';
@@ -12,7 +14,7 @@ $.getJSON( 'config.json', function(data) {
   $('.js-intro').html(intro);
 
   // Set up navigation + tree structure
-  $.each(content, function(key, val) {
+  $.each(content, function(key) {
     $('.js-navigation').append(
       '<li class="js-' + key + '">' +
         '<a href="#' + key + '">' + key + '</a>' +
@@ -26,15 +28,13 @@ $.getJSON( 'config.json', function(data) {
   });
 
   var setNavigation = function(navName, navObject) {
-    var navName = navName;
-    var navObject = navObject;
-    $.each(navObject, function(key, val) {
+    $.each(navObject, function(key) {
       $('.js-' + navName).append(
         '<ul>' +
           '<li><a href="#' + key + '">' + key + '</a></li>' +
         '</ul>');
     });
-  }
+  };
   setNavigation('atoms', atoms);
   setNavigation('molecules', molecules);
   setNavigation('organisms', organisms);
@@ -58,8 +58,6 @@ $.getJSON( 'config.json', function(data) {
 
   // Set up sections
   var setSections = function (patternName, patternObject) {
-    var patternName = patternName;
-    var patternObject = patternObject;
 
     $.each(patternObject, function(key, val) {
       var template = 
