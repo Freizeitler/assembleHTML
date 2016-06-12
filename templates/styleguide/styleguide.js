@@ -6,6 +6,7 @@ $.getJSON( 'config.json', function(data) {
   var molecules = content.molecules.patterns;
   var organisms = content.organisms.patterns;
   var colors = content.colors.codes;
+  var typo = content.typo.families;
 
   $('.js-title').html(title);
   $('.js-intro').html(intro);
@@ -18,10 +19,10 @@ $.getJSON( 'config.json', function(data) {
       '</li>');
     $('.js-content').append(
       '<section id="' + key + '">' +
-        '<h2>' + key + '</h2>' +
+        '<h2 class="styleguide-h2">' + key + '</h2>' +
         '<p>' + this.description + '</p>' +
       '</section>'+
-      '<p class="top-link"><a href="#top">to top</a></p>');
+      '<p class="styleguide-top-link"><a href="#top">to top</a></p>');
   });
 
   var setNavigation = function(navName, navObject) {
@@ -41,10 +42,19 @@ $.getJSON( 'config.json', function(data) {
   // Set up color boxes
   $.each(colors, function(i, item) {
     $('#colors').append(
-      '<div class="color-cube" style="background-color: ' + item + ';">' +
+      '<div class="styleguide-color-cube" style="background-color: ' + item + ';">' +
         '<div>' + item + '</div>' +
       '</div>');
   });
+
+  // Set up fonts
+  $.each(typo, function(key, val) {
+    $('#typo').append(
+      '<' + key +' class="font-' + key + '" style="font: ' + val + ';">' +
+      '&lt;' + key + '&gt; Lorem ipsum dolor sit amet.' +
+      '</' + key +'>');
+  });
+
 
   // Set up sections
   var setSections = function (patternName, patternObject) {
@@ -54,10 +64,10 @@ $.getJSON( 'config.json', function(data) {
     $.each(patternObject, function(key, val) {
       var template = 
       '<div class="' + key + ' pattern">' +
-        '<h3 id="' + key + '">' + key + '</h3>' +
+        '<h3 class="styleguide-h3" id="' + key + '">' + key + '</h3>' +
         '<p>' + val + '</p>' +
-        '<iframe src="_patterns/' + patternName + '/' + key + '/index.html"></iframe>' +
-        '<xmp class="snippet-' + key +' sg-code"></xmp>' +
+        '<iframe class="styleguide-iframe" src="_patterns/' + patternName + '/' + key + '/index.html"></iframe>' +
+        '<xmp class="snippet-' + key +' styleguide-xmp"></xmp>' +
       '</div>';
 
       $('#' + patternName).append(template);
