@@ -11,7 +11,7 @@
     "typo": {
       "description": "Define fonts in config.json",
       "families": {
-        "p": "Arial, sans-serif",
+        "p": "1em/1.4 Arial, sans-serif",
         "h1": "2.6em/1.2 Georgia, serif",
         "h2": "2.2em/1.2 Georgia, serif",
         "h3": "1.8em/1.2 Georgia, serif",
