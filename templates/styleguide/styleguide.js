@@ -1,12 +1,12 @@
 $.getJSON( 'config.json', function(data) {
-  var title = data.title;
-  var intro = data.intro;
-  var content = data.content;
-  var atoms = content.atoms.patterns;
-  var molecules = content.molecules.patterns;
-  var organisms = content.organisms.patterns;
-  var colors = content.colors.codes;
-  var typo = content.typo.families;
+  var title = data.title || '';
+  var intro = data.intro || '';
+  var content = data.content || '';
+  var atoms = content.atoms.patterns || '';
+  var molecules = content.molecules.patterns || '';
+  var organisms = content.organisms.patterns || '';
+  var colors = content.colors.codes || '';
+  var typo = content.typo.families || '';
 
   $('.js-title').html(title);
   $('.js-intro').html(intro);
