@@ -12,14 +12,26 @@ $.getJSON( 'config.json', function(data) {
 
   // Set up navigation + tree structure
   $.each(content, function(key, val) {
-    $('.js-navigation').append('<li class="js-' + key + '"><a href="#' + key + '">' + key + '</a></li>');
-    $('.js-content').append('<section id="' + key + '"><h2>' + key + '</h2><p>' + this.description + '</p></section><p class="top-link"><a href="#top">to top</a></p>');
+    $('.js-navigation').append(
+      '<li class="js-' + key + '">' +
+        '<a href="#' + key + '">' + key + '</a>' +
+      '</li>');
+    $('.js-content').append(
+      '<section id="' + key + '">' +
+        '<h2>' + key + '</h2>' +
+        '<p>' + this.description + '</p>' +
+      '</section>'+
+      '<p class="top-link"><a href="#top">to top</a></p>');
   });
+
   var setNavigation = function(navName, navObject) {
     var navName = navName;
     var navObject = navObject;
     $.each(navObject, function(key, val) {
-      $('.js-' + navName).append('<ul><li><a href="#' + key + '">' + key + '</a></li></ul>');
+      $('.js-' + navName).append(
+        '<ul>' +
+          '<li><a href="#' + key + '">' + key + '</a></li>' +
+        '</ul>');
     });
   }
   setNavigation('atoms', atoms);
@@ -28,7 +40,10 @@ $.getJSON( 'config.json', function(data) {
 
   // Set up color boxes
   $.each(colors, function(i, item) {
-    $('#colors').append('<div class="color-cube" style="background-color: ' + item + ';"><div>' + item + '</div></div>');
+    $('#colors').append(
+      '<div class="color-cube" style="background-color: ' + item + ';">' +
+        '<div>' + item + '</div>' +
+      '</div>');
   });
 
   // Set up sections
@@ -39,10 +54,10 @@ $.getJSON( 'config.json', function(data) {
     $.each(patternObject, function(key, val) {
       var template = 
       '<div class="' + key + ' pattern">' +
-      '<h3 id="' + key + '">' + key + '</h3>' +
-      '<p>' + val + '</p>' +
-      '<iframe src="_patterns/' + patternName + '/' + key + '/index.html"></iframe>' +
-      '<xmp class="snippet-' + key +' sg-code"></xmp>' +
+        '<h3 id="' + key + '">' + key + '</h3>' +
+        '<p>' + val + '</p>' +
+        '<iframe src="_patterns/' + patternName + '/' + key + '/index.html"></iframe>' +
+        '<xmp class="snippet-' + key +' sg-code"></xmp>' +
       '</div>';
 
       $('#' + patternName).append(template);
