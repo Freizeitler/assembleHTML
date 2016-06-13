@@ -51,7 +51,7 @@ $.getJSON( 'config.json', function(data) {
   $.each(typo, function(key, val) {
     $('#typo').append(
       '<' + key +' class="font-' + key + '" style="font: ' + val + ';">' +
-      '&lt;' + key + '&gt; Lorem ipsum dolor sit amet.' +
+        '&lt;' + key + '&gt; Lorem ipsum dolor sit amet.' +
       '</' + key +'>');
   });
 
