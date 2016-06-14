@@ -13,14 +13,14 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - run `grunt`for a watch task. It compiles SASS files, concatenates the CSS and JS files.
 - run `assemble-html`to assemble your .hbs files into static HTML and copy it into the *_dist* folder. It also creates the styleguide files in the *_dist/_styleguide* folder.
 - run `serve`to start the express-server that makes the dynamic styleguide engine work.
-- you can visit the style guide at http://localhost:3000/_dist/_styleguide/index.html and your HTML-page at http://localhost:3000/_dist/index.html
+- you can visit the style guide at [http://localhost:3000/_dist/_styleguide/index.html](http://localhost:3000/_dist/_styleguide/index.html) and your HTML-page at [http://localhost:3000/_dist/index.html](http://localhost:3000/_dist/index.html).
 
 ### Workflow:
-- add component (.hbs)
-- add component based .scss-file
-- include .scss-file into app.scss
+- add component (.hbs).
+- add component based .scss-file.
+- include .scss-file into app.scss.
 - you can pass the content for the assembled HTML-file via YAML front matter or an external .yml or .json file in the data folder. The external file has to have the same name as the .hbs pattern or template. Global contents can be included into the data.json. It's the default file. Contents for the styleguide go into the data/pattern folder.
-- include component into styleguide's config.json
+- include component into styleguide's config.json.
 - run `grunt assemble-it` or 'grunt build' to assemble and copy the files into the *_dist* and *_styleguide* folders. The folders will be created if they don't exist already.
 
 ### Manage different settings for production and styleguide
