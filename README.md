@@ -11,7 +11,7 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - run `npm install`
 - run `bower install`to install the vendor files needed
 - run `grunt`for a watch task. It compiles SASS files, concatenates the CSS and JS files.
-- run `assemble-html`to assemble your .hbs files into static HTML and copy it into the __dist_ folder. It also creates the styleguide files in the __dist_ __styleguide_ folder.
+- run `assemble-html`to assemble your .hbs files into static HTML and copy it into the *_dist* folder. It also creates the styleguide files in the *_dist/_styleguide* folder.
 - run `serve`to start the express-server that makes the dynamic styleguide engine work.
 - you can visit the style guide at http://localhost:3000/_dist/_styleguide/index.html and your HTML-page at http://localhost:3000/_dist/index.html
 
@@ -21,12 +21,12 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - include .scss-file into app.scss
 - you can pass the content for the assembled HTML-file via YAML front matter or an external .yml or .json file in the data folder. The external file has to have the same name as the .hbs pattern or template. Global contents can be included into the data.json. It's the default file. Contents for the styleguide go into the data/pattern folder.
 - include component into styleguide's config.json
-- run `grunt assemble-it` or 'grunt build'
+- run `grunt assemble-it` or 'grunt build' to assemble and copy the files into the *_dist* and *_styleguide* folders. The folders will be created if they don't exist already.
 
-### Different settings for production and styleguide
+### Manage different settings for production and styleguide
 If you want to configure different settings in styleguide and production code, here' how to proceed.
 
-Best example image paths. The image path for your production code is by default *./assets/images/*. But this path wouldn't work for the images within your styleguide patterns. So you have to pass different paths depending on the environment the files are compiled. You could set a handlebar for the image path in your pattern: `<img src="{{{ pattern.image-path }}}your-image.png" alt="" />`. Then you can define the production path via YAML front matter in your *whatever.hbs* and path the context with the pattern call like so:
+Best example is image paths. The image path for your production code is by default *./assets/images/*. But this path wouldn't work for the images within your styleguide patterns. So you have to pass different paths depending on the environment the files are compiled. You could set a handlebar for the image path in your pattern: `<img src="{{{ pattern.image-path }}}your-image.png" alt="" />`. Then you can define the production path via YAML front matter in your *whatever.hbs* and pass the context with the pattern call like so:
 ```hbs
 ---
   pattern-path:
@@ -36,7 +36,7 @@ Best example image paths. The image path for your production code is by default 
 
 {{{ organism "pattern" pattern-path }}}
 ```
-For the styleguide, you simply create a *.json* file with the same name as your pattern and define the other path there:
+For the styleguide, you simply create a *.json* file with the same name as your pattern in the *data/pattern* folder and define the other path there:
 ```json
 {
   "image-path": "../../../assets/images/"
@@ -45,9 +45,9 @@ For the styleguide, you simply create a *.json* file with the same name as your 
 
 
 ### Configure Styleguide
-The styleguide files are placed in _templates/_styleguide_ folder. Everything you need to adjust has to be changed here. Te styleguide folder within the __dist_ folder will be overridden every time you run `assemble-html`.
+The styleguide files are placed in _templates/_styleguide_ folder. Everything you need to adjust has to be changed here. The styleguide folder within the *_dist_ folder* will be overridden every time you run `assemble-html` ;)
 
-The heart of the sytleguide is the _config.json. Every pattern (atom, molecule, organism) has to be listed here and you can leave a short description for it. That's all you have to do to keep it updated.
+The heart of the sytleguide is the _config.json. Every pattern (atom, molecule, organism) has to be listed here and you can leave a short description for it. That's all you have to do to keep it alive and updated.
 To change the theme simply change the CSS within the styleguide.css in the same folder.
 ```javascript
 {
