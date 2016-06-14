@@ -23,10 +23,10 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - include component into styleguide's config.json
 - run `grunt assemble-it` or 'grunt build' to assemble and copy the files into the *_dist* and *_styleguide* folders. The folders will be created if they don't exist already.
 
-### Different settings for production and styleguide
+### Manage different settings for production and styleguide
 If you want to configure different settings in styleguide and production code, here' how to proceed.
 
-Best example image paths. The image path for your production code is by default *./assets/images/*. But this path wouldn't work for the images within your styleguide patterns. So you have to pass different paths depending on the environment the files are compiled. You could set a handlebar for the image path in your pattern: `<img src="{{{ pattern.image-path }}}your-image.png" alt="" />`. Then you can define the production path via YAML front matter in your *whatever.hbs* and path the context with the pattern call like so:
+Best example is image paths. The image path for your production code is by default *./assets/images/*. But this path wouldn't work for the images within your styleguide patterns. So you have to pass different paths depending on the environment the files are compiled. You could set a handlebar for the image path in your pattern: `<img src="{{{ pattern.image-path }}}your-image.png" alt="" />`. Then you can define the production path via YAML front matter in your *whatever.hbs* and pass the context with the pattern call like so:
 ```hbs
 ---
   pattern-path:
