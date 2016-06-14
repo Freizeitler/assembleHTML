@@ -95,7 +95,7 @@ module.exports = function(grunt) {
         },
         src: [
           'js/app.js',
-          '<%= site.patterns %>/**/*.js'
+          ['<%= site.patterns %>/**/*.js']
         ],
         dest: 'js/app.pkgd.js'
       }
@@ -141,22 +141,24 @@ module.exports = function(grunt) {
     },
 
     copy: {
-		  main: {
-		    files: [
-		      // includes files within path
-		      {expand: true, src: ['css/**/*'], dest: '_dist/assets/', filter: 'isFile'},
-		      {expand: true, src: ['js-min/**/*'], dest: '_dist/assets/', filter: 'isFile'},
-		      {expand: true, src: ['images/**/*'], dest: '_dist/assets/', filter: 'isFile'},
+      main: {
+        files: [
+          // includes files within path
+          {expand: true, src: ['css/**/*'], dest: '_dist/assets/', filter: 'isFile'},
+          {expand: true, src: ['js/**/*'], dest: '_dist/assets/', filter: 'isFile'},
+          {expand: true, src: ['images/**/*'], dest: '_dist/assets/', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['<%= site.patterns %>/**/*.gif', '<%= site.patterns %>/**/*.jpg', '<%= site.patterns %>/**/*.svg', '<%= site.patterns %>/**/*.png', '<%= site.patterns %>/**/*.jpeg'], dest: '_dist/assets/images', filter: 'isFile'},
           // copy styleguide files
           {expand: true, flatten: true, src: ['templates/styleguide/**/*'], dest: '_dist/_styleguide/'}
-		    ],
-		  }
-		},
+        ],
+      }
+    },
 
     watch: {
 
-			html: {
+      html: {
         files: ['*.html', '<%= site.patterns %>/*hbs'],
+        tasks: ['assemble', 'copy:main'],
         options: {
           livereload: true
         }
@@ -171,7 +173,7 @@ module.exports = function(grunt) {
 
       js: {
         files: ['js/*.js', '<%= site.patterns %>/**/*.js'],
-        tasks: ['concat:js', 'uglify:js'],
+        tasks: ['concat:js', 'uglify:js', 'assemble', 'copy:main'],
         options: {
           livereload: true
         }
@@ -179,7 +181,7 @@ module.exports = function(grunt) {
 
       sass: {
         files: ['scss/**/*.scss', '<%= site.patterns %>/**/*.scss'],
-        tasks: ['compass:dist', 'autoprefixer'/*, 'cssmin:target'*/],
+        tasks: ['compass:dist', 'autoprefixer'/*, 'cssmin:target'*/, 'assemble', 'copy:main'],
         options: {
           livereload: true,
           spawn : false       // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions.
@@ -207,6 +209,6 @@ module.exports = function(grunt) {
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', /*'cssmin:target', */'copy:main']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', 'assemble', 'copy:main']
   );
 };
