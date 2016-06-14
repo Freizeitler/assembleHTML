@@ -21,7 +21,28 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - include .scss-file into app.scss
 - you can pass the content for the assembled HTML-file via YAML front matter or an external .yml or .json file in the data folder. The external file has to have the same name as the .hbs pattern or template. Global contents can be included into the data.json. It's the default file. Contents for the styleguide go into the data/pattern folder.
 - include component into styleguide's config.json
-- run grunt assemble-it
+- run `grunt assemble-it` or 'grunt build'
+
+### Different settings for production and styleguide
+If you want to configure different settings in styleguide and production code, here' how to proceed.
+
+Best example image paths. The image path for your production code is by default *./assets/images/*. But this path wouldn't work for the images within your styleguide patterns. So you have to pass different paths depending on the environment the files are compiled. You could set a handlebar for the image path in your pattern: `<img src="{{{ pattern.image-path }}}your-image.png" alt="" />`. Then you can define the production path via YAML front matter in your *whatever.hbs* and path the context with the pattern call like so:
+```hbs
+---
+  pattern-path:
+   pattern:
+    image-path: ./assets/images/
+---
+
+{{{ organism "pattern" pattern-path }}}
+```
+For the styleguide, you simply create a *.json* file with the same name as your pattern and define the other path there:
+```json
+{
+  "image-path": "../../../assets/images/"
+}
+```
+
 
 ### Configure Styleguide
 The styleguide files are placed in _templates/_styleguide_ folder. Everything you need to adjust has to be changed here. Te styleguide folder within the __dist_ folder will be overridden every time you run `assemble-html`.
@@ -62,5 +83,5 @@ To change the theme simply change the CSS within the styleguide.css in the same 
 }
 ```
 
-##### Notes
+##### Additional notes
 - You shouldn't use camel-case naming for handlebars or filenames, because in some cases it confuses the assembler engine.
