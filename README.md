@@ -15,6 +15,9 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - run `serve`to start the express-server that makes the dynamic styleguide engine work.
 - you can visit the style guide at [http://localhost:3000/_dist/_styleguide/index.html](http://localhost:3000/_dist/_styleguide/index.html) and your HTML-page at [http://localhost:3000/_dist/index.html](http://localhost:3000/_dist/index.html).
 
+### Folder structure
+[TODO]
+
 ### Workflow:
 - add component (.hbs).
 - add component based .scss-file.
