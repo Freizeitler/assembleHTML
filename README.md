@@ -15,8 +15,59 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - run `serve`to start the express-server that makes the dynamic styleguide engine work.
 - you can visit the style guide at [http://localhost:3000/_dist/_styleguide/index.html](http://localhost:3000/_dist/_styleguide/index.html) and your HTML-page at [http://localhost:3000/_dist/index.html](http://localhost:3000/_dist/index.html).
 
-### Folder structure
-[TODO]
+### Folder structures
+#### Root (Dev, most important file locations)
+Just configure and change files in the root folder, never in *_dist*. Files in *_dist* will be overridden every time you run the assemble task. Here are listed just the most imortant folder. The rest like *scss/* should be self-explaining.
+```
+assembleHTML
+│   .assemble.yml    
+│
+└───templates
+    │
+    ├───layouts
+    │   │   default.hbs (set patterns for a default layout)
+    │   │   styleguide.hbs (set patterns for the styleguide layout, e.g. includes/footStyleguide.hbs,...)
+    │
+    └───styleguide
+    │   config.json (configurations for the styleguide go here)
+    │   index.html (styleguide's start page)
+    │   styleguide.css (styleguide's stylings)
+    │   styleguide.js (styleguide's generartor engine)
+```
+
+#### Output (_dist)
+```
+_dist
+│   index.html (this is project's index file)
+│   page01.html
+│   page02.html
+│   ...     
+│
+└───assets
+│   │
+│   ├───css
+│   │   app.css
+│   │
+│   └───js
+│   │   app.pkgd.js
+│   │   app.js
+│   │   
+│   └───images
+│   │   
+└───_styleguide (don't change files in this folder! Changes will be overridden...)
+│   │   config.json
+│   │   index.html (styleguide's index)
+│   │   styleguide.css
+│   │   styleguide.js
+│   │
+│   ├───_patterns
+│   │   ├
+│   │   ├───atoms
+│   │   │
+│   │   ├───molecules
+│   │   │
+│   │   ├───organisms
+```
 
 ### Workflow:
 - add component (.hbs).
