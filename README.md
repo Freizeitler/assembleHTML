@@ -4,7 +4,7 @@
 
 Assemble static HTML and the used Atomic Design Patterns with the help of handlebars and assemble.io. It produces a living styleguide on the fly. Based partly on https://github.com/assemble/assemble-pattern-lab by Jon Schlinkert.
 
-Why another Atomic Design boilerplate? Because this one has as less dependencies as possible and most of all, if you generate your code through this tool, you'll have always the same code in your living styleguide as you have in production.
+Why another Atomic Design boilerplate? Because this one has as less dependencies as possible and most of all, if you generate your code through this tool, you'll have always the same code in your living styleguide as you have in production. Additionally you can work against a JSON API / Mock to include data from a database instead of static content.
 
 
 ### Installation and usage
@@ -60,7 +60,7 @@ _dist
 │   │   styleguide.css
 │   │   styleguide.js
 │   │
-│   ├───_patterns
+│   ├───_patterns (just used by the styleguide engine)
 │   │   ├
 │   │   ├───atoms
 │   │   │
@@ -139,3 +139,6 @@ To change the theme simply change the CSS within the styleguide.css in the same 
 
 ##### Additional notes
 - You shouldn't use camel-case naming for handlebars or filenames, because in some cases it confuses the assembler engine.
+
+### To Do:
+- Don't use concatenated css and js files. Set up dynamic asset loading for http2 support.
