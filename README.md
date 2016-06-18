@@ -4,7 +4,7 @@
 
 Assemble static HTML and the used Atomic Design Patterns with the help of handlebars and assemble.io. It produces a living styleguide on the fly. Based partly on https://github.com/assemble/assemble-pattern-lab by Jon Schlinkert.
 
-Why another Atomic Design boilerplate? Because this one has as less dependencies as possible and most of all, if you generate your code through this tool, you'll have always the same code in your living styleguide as you have in production. Additionally you can work against a JSON API / Mock to include data from a database instead of static content.
+Why another Atomic Design boilerplate? Because this one has as less dependencies as possible, it's easy to configure for several purposes and most of all, if you generate your code through this tool, you'll have always the same code in your living styleguide as you have in production. Additionally you can work against a JSON API / Mock to include data from a database instead of static content.
 
 
 ### Installation and usage
@@ -16,7 +16,7 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 - you can visit the style guide at [http://localhost:3000/_dist/_styleguide/index.html](http://localhost:3000/_dist/_styleguide/index.html) and your HTML-page at [http://localhost:3000/_dist/index.html](http://localhost:3000/_dist/index.html).
 
 ### Folder structures
-#### Root (Dev, most important file locations)
+#### Root (Dev, just most important file locations)
 Just configure and change files in the root folder, never in *_dist*. Files in *_dist* will be overridden every time you run the assemble task. Here are listed just the most imortant folder. The rest like *scss/* should be self-explaining.
 ```
 assembleHTML
@@ -35,7 +35,7 @@ assembleHTML
     │   styleguide.js (styleguide's generartor engine)
 ```
 
-#### Output (_dist)
+#### Output (_dist, will be generated)
 ```
 _dist
 │   index.html (this is project's index file)
