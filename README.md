@@ -139,6 +139,15 @@ To change the theme simply change the CSS within the styleguide.css in the same 
 
 ##### Additional notes
 - You shouldn't use camel-case naming for handlebars or filenames, because in some cases it confuses the assembler engine.
+- When writing YAML for passing data, keep care for the proper indentions. Nested objects in YAML are written with an indention of exactly one space. Special characters must be escaped by wrapping them into double quotes. YAML front matter objects must be enclosed into tripple minus. Example:
+'''yaml
+---
+
+button:
+ text: "<strong>Example</strong> for writing YAML"
+
+---
+'''
 
 ### To Do:
 - Don't use concatenated css and js files. Set up dynamic asset loading for http2 support.
