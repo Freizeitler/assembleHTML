@@ -20,7 +20,7 @@ Why another Atomic Design boilerplate? Because this one has as less dependencies
 Just configure and change files in the root folder, never in *_dist*. Files in *_dist* will be overridden every time you run the assemble task. Here are listed just the most imortant folder. The rest like *scss/* should be self-explaining.
 ```
 assembleHTML
-│   .assemble.yml    
+│   .assemble.yml
 │
 └───templates
     │
@@ -41,7 +41,7 @@ _dist
 │   index.html (this is project's index file)
 │   page01.html
 │   page02.html
-│   ...     
+│   ...
 │
 └───assets
 │   │
@@ -51,9 +51,9 @@ _dist
 │   └───js
 │   │   app.pkgd.js
 │   │   app.js
-│   │   
+│   │
 │   └───images
-│   │   
+│   │
 └───_styleguide (don't change files in this folder! Changes will be overridden...)
 │   │   config.json
 │   │   index.html (styleguide's index)
@@ -137,7 +137,7 @@ To change the theme simply change the CSS within the styleguide.css in the same 
 }
 ```
 
-##### Additional notes
+### Additional notes
 - You shouldn't use camel-case naming for handlebars or filenames, because in some cases it confuses the assembler engine.
 - When writing YAML for passing data, keep care for the proper indentions. Nested objects in YAML are written with an indention of exactly one space. Special characters must be escaped by wrapping them into double quotes. YAML front matter objects must be enclosed into tripple minus. Example:
 ```yaml
@@ -151,3 +151,4 @@ button:
 
 ### To Do:
 - Don't use concatenated css and js files. Set up dynamic asset loading for http2 support.
+- Add offline support. Idea: use upup.js to store the assembled HTML files and a data.json as asset. Include data via HBS.
