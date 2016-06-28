@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "normalize-scss": "3.0.*",
-    "jquery": "2.*"
+    "jquery": "2.*",
+    "susy": "~2.2.12"
   }
 }

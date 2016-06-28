@@ -1,0 +1,30 @@
+// Set global defaults for susy (http://susydocs.oddbird.net/en/latest/settings/):
+$susy: (
+  container: 1280px,
+  columns: 12,
+  gutters: .25,
+  gutter-position: after,
+  math: fluid,
+  output: isolate
+);
+
+.susy-grid-example {
+  @include container();
+  position: relative;
+  border: 1px solid #eee;
+
+  &--item {
+    @include span(12);
+    min-height: 100px;
+    background: #fff;
+
+    @include susy-breakpoint(480px) {
+      @include gallery(3);
+    }
+
+    > p {
+      background: #eee;
+      padding: 10px;
+    }
+  }
+}
