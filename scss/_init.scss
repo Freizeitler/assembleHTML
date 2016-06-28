@@ -1,0 +1,7 @@
+.btn {
+  @include button();
+}
+
+.button-label {
+  @include button-label();
+}

@@ -1,4 +1,4 @@
-.btn {
+@mixin button() {
 	background: green;
   color: #fff;
 	border: 0;
