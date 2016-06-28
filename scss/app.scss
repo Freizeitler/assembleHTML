@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @import "../vendor/bower/normalize-scss/normalize";
+@import "../vendor/bower/susy/sass/susy";
 
 // Global Settings
 @import "app_settings";
@@ -18,7 +19,11 @@
 @import "../patterns/molecules/buttonLabel/scss/buttonLabel";
 
 // Organisms
-//@import "../patterns/organisms/buttons/scss/";
+@import "../patterns/organisms/susy-grid-example/scss/susy-grid-example";
 
 // Pages
 //@import "../patterns/pages/buttons/scss/example";
+
+
+// Init
+@import "init";
