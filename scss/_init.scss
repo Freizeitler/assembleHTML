@@ -5,3 +5,7 @@
 .button-label {
   @include button-label();
 }
+
+.susy-grid-example {
+  @include susy-grid-example();
+}
