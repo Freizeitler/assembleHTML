@@ -16,16 +16,17 @@
 .styleguide-p {
     font-size: 0.9em;
 }
-.styleguide-iframe {
+.styleguide-show {
     resize: both;
     overflow: auto;
-    width: 100%;
     max-width: 100%;
     height: auto;
     min-width: 320px;
     background-color: #fff;
     border: 1px dashed #ddd;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
+    display: inline-block;
+    padding: 15px;
 }
 .styleguide-xmp {
     font: normal 1em/1.4 monospace;

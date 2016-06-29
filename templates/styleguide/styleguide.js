@@ -61,23 +61,29 @@ $.getJSON( 'config.json', function(data) {
 
     $.each(patternObject, function(key, val) {
       var template =
-      '<div class="' + key + ' pattern">' +
+      '<div class="styleguide-' + key + ' styleguide-pattern">' +
         '<h3 class="styleguide-h3" id="' + key + '">' + key + '</h3>' +
         '<p>' + val + '</p>' +
-        '<iframe class="styleguide-iframe" src="_patterns/patterns/' + patternName + '/' + key + '/' + key + '.html"></iframe>' +
-        '<xmp class="snippet-' + key +' styleguide-xmp"></xmp>' +
+        '<div class="styleguide-show styleguide-pattern-' + key +'" data-src="_patterns/patterns/' + patternName + '/' + key + '/' + key + '.html"></div>' +
+        '<xmp class="styleguide-snippet-' + key +' styleguide-xmp"></xmp>' +
       '</div>';
 
       $('#' + patternName).append(template);
 
       $.get('_patterns/patterns/' + patternName + '/' + key + '/' + key + '.html', function(data) {
-        var origHTML = $(data).filter('#snippet');
-        var innerHTML = origHTML.children().prop('outerHTML');
-        $('.snippet-' + key).html(innerHTML);
+        var origHTML = $(data);
+        var innerHTML = origHTML.prop('outerHTML');
+        $('.styleguide-snippet-' + key).html(innerHTML);
       });
     });
   };
   setSections('atoms', atoms);
   setSections('molecules', molecules);
   setSections('organisms', organisms);
+
+  // Fill in patterns
+  $('.styleguide-show').each(function() {
+    var patternSrc = $(this).data('src');
+    $(this).load(patternSrc);
+  });
 });
