@@ -60,17 +60,17 @@ $.getJSON( 'config.json', function(data) {
   var setSections = function (patternName, patternObject) {
 
     $.each(patternObject, function(key, val) {
-      var template = 
+      var template =
       '<div class="' + key + ' pattern">' +
         '<h3 class="styleguide-h3" id="' + key + '">' + key + '</h3>' +
         '<p>' + val + '</p>' +
-        '<iframe class="styleguide-iframe" src="_patterns/' + patternName + '/' + key + '/index.html"></iframe>' +
+        '<iframe class="styleguide-iframe" src="_patterns/patterns/' + patternName + '/' + key + '/' + key + '.html"></iframe>' +
         '<xmp class="snippet-' + key +' styleguide-xmp"></xmp>' +
       '</div>';
 
       $('#' + patternName).append(template);
 
-      $.get('_patterns/' + patternName + '/' + key + '/index.html', function(data) {
+      $.get('_patterns/patterns/' + patternName + '/' + key + '/' + key + '.html', function(data) {
         var origHTML = $(data).filter('#snippet');
         var innerHTML = origHTML.children().prop('outerHTML');
         $('.snippet-' + key).html(innerHTML);

@@ -16,62 +16,20 @@ module.exports = function(grunt) {
     // <%= site %> metadata comes from this file
     site: grunt.file.readYAML('.assemble.yml'),
 
-    assemble: {
-      options: {
-        flatten: true,
-        assets: '<%= site.assets %>',
-
-        // Metadata
-        pkg: '<%= pkg %>',
-        site: '<%= site %>',
-        data: ['<%= site.data %>/**/*.json'],
-        helpers: ['<%= site.helpers %>/*.js'],
-        plugins: '<%= site.plugins %>',
-
-        // General templates
-        partials: ['<%= site.includes %>/**/*.hbs'],
-        layouts: '<%= site.layouts %>',
-        layoutext: '<%= site.layoutext %>',
-        layout: '<%= site.layout %>',
-
-        // Pattern Lab templates
-        patterns: {
-          atoms: ['<%= site.atoms %>/**/*.hbs'],
-          molecules: ['<%= site.molecules %>/**/*.hbs'],
-          organisms: ['<%= site.organisms %>/**/*.hbs'],
-          templates: ['<%= site.templates %>/**/*.hbs'],
-        }
-      },
-
-      // 'pages' are specified in the src
-      site: {
-        src: ['<%= site.pages %>/*.hbs', 'src/*.hbs'],
-        dest: '<%= site.dest %>/'
-      },
-
-      patterns: {
-        options: {
-          layout: 'styleguide',
-          permalinks: {
-            preset: 'pretty',
-            structure: ':pattern',
-            patterns: [
-              {
-                pattern: /:pattern/,
-                replacement: function(src) {
-                  return this.src.split('/')[1];
-                }
-              }
-            ]
+    twigRender: {
+      styleguide: {
+        files : [
+          {
+            data: ['<%= site.data %>/data.json'],
+            expand: true,
+            cwd: '',
+            src: ['<%= site.patterns %>/**/*.twig'],
+            dest: '<%= site.styleguide %>/_patterns/',
+            ext: '.html'   // index.twig + datafile.json => index.html
           }
-        },
-        src: ['<%= site.patterns %>/**/*.hbs'],
-        dest: '<%= site.styleguide %>/_patterns/'
+        ]
       },
     },
-    /**
-     * END: Assemble Part
-     */
 
     clean: {
       examples: ['<%= assemble.examples.dest %>/**'],
@@ -194,14 +152,14 @@ module.exports = function(grunt) {
   });
 
   // Load Assemble
-  grunt.task.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-twig-render');
   // load all plugins from the "package.json"-file
   require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
   // The default task to run with the `grunt` command
-  grunt.registerTask('default', ['watch', 'assemble']);
+  grunt.registerTask('default', ['watch', 'twigRender:styleguide']);
 
-  grunt.registerTask('assemble-html', ['assemble', 'copy:main']);
+  grunt.registerTask('assemble-html', ['twigRender:styleguide', 'copy:main']);
 
   grunt.registerTask('clean-build', ['clean:build']);
   grunt.registerTask('cssmin', ['cssmin:target']);
@@ -209,6 +167,6 @@ module.exports = function(grunt) {
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', 'assemble', 'copy:main']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', 'twigRender:styleguide', 'copy:main']
   );
 };

@@ -21,6 +21,7 @@
     "handlebars-helper-rel": "^0.1.2",
     "lodash": "^2.4.1",
     "matchdep": "latest",
-    "time-grunt": "latest"
+    "time-grunt": "latest",
+    "grunt-twig-render": "^1.7.3"
   }
 }
