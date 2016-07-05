@@ -72,7 +72,7 @@ module.exports = function(grunt) {
       }
     },
 
-    /*cssmin: {
+    cssmin: {
       target: {
         files: [{
           expand: true,
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
           ext: '.min.css'
         }]
       }
-    },*/
+    },
 
     uglify: {
       js: {
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
 
       sass: {
         files: ['scss/**/*.scss', '<%= site.patterns %>/**/*.scss'],
-        tasks: ['compass:dist', 'autoprefixer'/*, 'cssmin:target'*/, 'assemble', 'copy:main'],
+        tasks: ['compass:dist', 'autoprefixer', /*'cssmin:target',*/ 'assemble', 'copy:main'],
         options: {
           livereload: true,
           spawn : false       // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions.
@@ -167,6 +167,6 @@ module.exports = function(grunt) {
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', 'twigRender:styleguide', 'copy:main']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', /*'cssmin:target',*/ 'twigRender:styleguide', 'copy:main']
   );
 };
