@@ -60,12 +60,12 @@ $.getJSON( 'config.json', function(data) {
   var setSections = function (patternName, patternObject) {
 
     $.each(patternObject, function(key, val) {
-      var template = 
+      var template =
       '<div class="' + key + ' pattern">' +
         '<h3 class="styleguide-h3" id="' + key + '">' + key + '</h3>' +
         '<p>' + val + '</p>' +
         '<iframe class="styleguide-iframe" src="_patterns/' + patternName + '/' + key + '/index.html"></iframe>' +
-        '<xmp class="snippet-' + key +' styleguide-xmp"></xmp>' +
+        '<pre><code class="snippet-' + key +' styleguide-xmp"></code></pre>' +
       '</div>';
 
       $('#' + patternName).append(template);
@@ -73,11 +73,30 @@ $.getJSON( 'config.json', function(data) {
       $.get('_patterns/' + patternName + '/' + key + '/index.html', function(data) {
         var origHTML = $(data).filter('#snippet');
         var innerHTML = origHTML.children().prop('outerHTML');
-        $('.snippet-' + key).html(innerHTML);
+        $('.snippet-' + key).text(innerHTML).html();
+        $('.snippet-' + key).each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
       });
     });
   };
   setSections('atoms', atoms);
   setSections('molecules', molecules);
   setSections('organisms', organisms);
+
+  // Smooth Scrolling
+  $(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 500);
+          return false;
+        }
+      }
+    });
+  });
 });
