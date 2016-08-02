@@ -1,0 +1,62 @@
+@mixin navigation($spacing) {
+  position: absolute;
+  top: 5px;
+  width: 100%;
+  pointer-events: none;
+  z-index: 4;
+
+  @media (min-width: 0) {
+    padding: 70px 0 0 0;
+  }
+  @media (min-width: 1035px) {
+    padding: 35px 0;
+  }
+
+  &__wrapper {
+    text-align: right;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    pointer-events: none;
+    padding-left: 0;
+    padding-right: $spacing;
+    @include container();
+
+    @media (min-width: 0) {
+      text-align: center;
+      background: $color-black;
+    }
+    @media (min-width: 1035px) {
+      text-align: right;
+      background: none;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    color: inherit;
+    border-color: darken($color-white, 95%);
+    pointer-events: all;
+    background: $color-black;
+
+    @media (min-width: 0) {
+      margin: 5px;
+    }
+    @media (min-width: 1035px) {
+      margin: 0 0 0 5px;
+    }
+  }
+}
+
+.navigation {
+  @include navigation($spacing);
+
+  // Cross Component
+  .ghost-anchor {
+    color: $color-white;
+
+    &:hover, .ds-active & {
+      color: $color-blue;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@mixin icon-multicast-yellow($height, $easing) {
+  $root: &;
+  width: $height;
+  height: $height;
+  display: inline-block;
+  background: $color-black;
+
+   &__svg {
+
+    &__path, &__border {
+      fill: $color-yellow;
+      transition: fill 0.2s;
+      pointer-events: none;
+    }
+
+    &__bg {
+      fill: $color-black;
+      transform-origin: $height/2;
+      transform: scale(0.5) rotate(-90deg);
+      transition: all 0.2s $easing;
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+
+    #{$root}__svg {
+
+      &__path {
+        fill: $color-black;
+      }
+
+      &__bg {
+        fill: $color-yellow;
+        transform: scale(1) rotate(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.icon-multicast-yellow {
+  @include icon-multicast-yellow(135px, $global-easing);
+}

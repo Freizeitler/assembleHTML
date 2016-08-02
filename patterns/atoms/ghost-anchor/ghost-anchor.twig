@@ -1,0 +1,3 @@
+{% block ghostAnchor %}
+  <a class="ghost-anchor" href="{{ url | default('') }}">{{ text | default('Lorem') | raw }}</a>
+{% endblock %}

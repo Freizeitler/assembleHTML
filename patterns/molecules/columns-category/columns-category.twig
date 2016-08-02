@@ -1,0 +1,22 @@
+
+<div class="columns-category__column--left">
+  {% if item.iconType %}
+    {% include pathDirThemeRelative ~ "patterns/atoms/icon-multicast-" ~ item.iconType ~ "/icon-multicast-" ~ item.iconType ~ ".twig" %}
+  {% endif %}
+</div>
+
+<div class="columns-category__column--right">
+
+  {% if item.headline %}
+    <h2>{{ item.headline | default('') | raw }}</h2>
+  {% endif %}
+
+  {% if item.text %}
+    <p>{{ item.text | default('') | raw }}</p>
+  {% endif %}
+
+  {% if item.url %}
+    {% embed pathDirThemeRelative ~ "patterns/atoms/ghost-anchor/ghost-anchor.twig" with { 'url': item.url, 'text': item.url_text, } %}
+    {% endembed %}
+  {% endif %}
+</div>

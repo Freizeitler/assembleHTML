@@ -1,0 +1,38 @@
+@mixin header($spacing) {
+  width: 100%;
+  background-color: $color-black;
+  height: 132px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  overflow: hidden;
+
+  @media (min-width: 0) {
+    padding-left: $spacing;
+    padding-right: $spacing;
+  }
+  @media (min-width: 1200px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__wrapper {
+    @include container();
+  }
+
+  &__logo {
+    display: inline-block;
+    transition: all 0.2s;
+    position: relative;
+
+    @media (min-width: 0) {
+      top: -30px;
+    }
+    @media (min-width: 1035px) {
+      top: 0;
+    }
+  }
+}
+
+.header {
+  @include header($spacing);
+}

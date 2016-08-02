@@ -1,0 +1,43 @@
+@mixin meta-navigation() {
+
+  &__wrapper {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 15px;
+    margin: 0 0 0 10px;
+
+    &:before {
+      content:'|';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &:first-child {
+      padding-left: 0;
+      margin-left: 0;
+
+      &:before {
+        content: '';
+      }
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.meta-navigation {
+  @include meta-navigation();
+}

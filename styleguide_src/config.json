@@ -1,0 +1,63 @@
+{
+  "title": "Multicast | Living Styleguide",
+  "intro": "Dies ist der Living Styleguide für das Multicast-Projekt. Die Struktur der Komponenten entspricht den Richtlinien des Atomic Designs.",
+  "navigationHeadline": "Struktur",
+
+  "content": {
+
+    "colors": {
+      "description": "Die Hauptfarben und die allgemeine Textfarbe",
+      "codes": ["rgb(0,0,0)", "rgb(255,221,0)", "rgb(66,181,240)", "rgb(237,39,136)", "rgb(178,210,51)", "rgb(64,64,64)"]
+    },
+
+    "typo": {
+      "description": "Typografie und Fonts:",
+      "families": {
+        "p": "1em/1.4 Arial, sans-serif",
+        "h1": "2.6em/1.2 Arial, sans-serif",
+        "h2": "2.2em/1.2 Arial, sans-serif",
+        "h3": "1.8em/1.2 Arial, sans-serif",
+        "h4": "1.6em/1.2 Arial, sans-serif",
+        "h5": "1.4em/1.2 Arial, sans-serif",
+        "h6": "1.2em/1.2 Arial, sans-serif"
+      }
+    },
+
+    "atoms": {
+      "description": "Atoms sind die kleinste Einheit der Elemente einer Website. ",
+
+      "patterns": {
+        "ghost-anchor": "Spezielle Links im Design eines Ghost-Buttons.",
+        "icon-multicast-yellow": "Das Icon für Multicast Content.",
+        "icon-multicast-blue": "Das Icon für Multicast Mail.",
+        "icon-multicast-pink": "Das Icon für Multicast Profile.",
+        "icon-multicast-green": "Das Icon für Multicast Report."
+      }
+    },
+
+    "molecules": {
+      "description": "<strong>Molecules</strong> are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+        "columns": "Spaltenanordung",
+        "columns-category": "Spaltenanordnung der Kategorien-Sektionen",
+        "meta-navigation": "Wird z.B. im Footer eingesetzt."
+      }
+    },
+
+    "organisms": {
+      "description": "Organisms are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+        "header": "Der Kopfbereich der Seite.",
+        "navigation": "Die Navigation",
+        "section-hero": "Hero-Teaser im Kopfbereich der Seite.",
+        "section-text": "Sektion, 2-spaltig, nur mit textl. Inhalt",
+        "section-text-category": "Eine Sektion für eine Kategorie",
+        "navigation-content": "Sprungmarkennavigation für den Content der Startseite.",
+        "footer": "Der Footer der Seite."
+      }
+    }
+
+  }
+}

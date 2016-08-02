@@ -1,0 +1,30 @@
+
+<section class="section-text">
+  <div class="section-text__grid">
+    <div class="columns__column--left">
+      {% embed pathDirThemeRelative ~ "patterns/atoms/graphic-core/graphic-core.twig" %}
+      {% endembed %}
+    </div>
+
+    <div class="columns__column--right">
+      {% if item.content_left == true %}
+
+        {% if item.headline %}
+          <h2>{{ item.headline | default('') | raw }}</h2>
+        {% endif %}
+
+        {% if item.text %}
+          <p>{{ item.text | default('') | raw }}</p>
+        {% endif %}
+
+        {% if item.url %}
+          {% embed pathDirThemeRelative ~ "patterns/atoms/ghost-anchor/ghost-anchor.twig" with { 'url': item.url, 'text': item.url_text, } %}
+          {% endembed %}
+        {% endif %}
+
+      {% elseif item.image != '' %}
+        <img src="{{ urlDirUpload }}{{ item.image }}" alt="" />
+      {% endif %}
+    </div>
+  </div>
+</section>

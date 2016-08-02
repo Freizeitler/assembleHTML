@@ -1,0 +1,27 @@
+@mixin footer($spacing) {
+  width: 100%;
+  background-color: $color-black;
+  box-sizing: border-box;
+  padding: 35px 0;
+  color: $color-white;
+  padding-left: $spacing;
+  padding-right: $spacing;
+
+  &__wrapper {
+    @include container();
+  }
+
+  &__disclaimer {
+    display: inline-block;
+  }
+
+  // Cross Component
+  .meta-navigation {
+    float: right;
+    color: $color-white;
+  }
+}
+
+.footer {
+  @include footer($spacing);
+}

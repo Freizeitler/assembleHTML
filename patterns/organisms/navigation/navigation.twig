@@ -1,0 +1,11 @@
+{# @var items \cms\Page[] #}
+
+<nav class="navigation js-sticky" role="navigation">
+  <ul class="navigation__wrapper">
+    {% for item in items %}
+      <li class="navigation__item">
+        {% include pathDirThemeRelative ~ "patterns/atoms/ghost-anchor/ghost-anchor.twig" with { 'url': item.url_seo,'text': item.pagelanguage_title, } %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

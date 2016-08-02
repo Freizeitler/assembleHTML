@@ -1,0 +1,44 @@
+
+@mixin section-text-category($spacing) {
+  position: relative;
+  background: $color-white;
+  padding-top: 45px;
+  padding-bottom: 110px;
+  padding-left: $spacing;
+  padding-right: $spacing;
+
+  &--image {
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    box-shadow: inset 0 50px 40px -40px rgba(0,0,0,0.4), inset 0 -60px 40px -40px rgba(0,0,0,0.4);
+    padding-top: 65px;
+    padding-bottom: 0;
+  }
+
+  &__grid {
+    @include container();
+    position: relative;
+  }
+
+  &__bg {
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+    bottom: -5px;
+    left: 40%;
+    max-width: 100%;
+    transition: transform 0.6s;
+    transform: translateX(0);
+
+    &.js-waypoint-hidden {
+      transform: translateX(2000px);
+    }
+  }
+}
+
+.section-text-category {
+  @include section-text-category($spacing);
+}

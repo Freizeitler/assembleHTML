@@ -1,0 +1,129 @@
+@mixin navigation-content($height, $spacing) {
+  background: $color-black;
+  position: relative;
+  z-index: 2;
+  padding-left: $spacing;
+  padding-right: $spacing;
+
+  &__stage {
+    @media (min-width: 0) {
+      overflow: auto;
+      height: auto;
+      text-align: center;
+      padding-top: $spacing;
+      padding-bottom: $spacing;
+    }
+    @media (min-width: 780px) {
+      overflow: visible;
+      height: $height;
+      text-align: left;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__wrapper {
+    @include container();
+    display: block;
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    min-width: 780px;
+
+    @media (min-width: 0) {
+      padding-top: gutter(2);
+    }
+    @media (min-width: 780px) {
+      padding-top: 0;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    min-width: 140px;
+    position: relative;
+
+    @media (min-width: 0) {
+      @include span(3 of 12);
+      top: 0;
+    }
+    @media (min-width: 780px) {
+      @include span(2 of 10);
+      top: -30px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--headline {
+      display: flex;
+      align-items: center;
+      top: 0;
+
+      @media (min-width: 0) {
+        @include span(10 of 10);
+        float: none;
+        height: auto;
+        padding-bottom: $spacing;
+        padding-left: gutter();
+        padding-top: gutter();
+        position: absolute;
+      }
+      @media (min-width: 780px) {
+        @include span(2 of 10);
+        float: left;
+        height: $height;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-top: 0;
+        position: static;
+      }
+
+      h3 {
+        margin: 0;
+        color: $color-white;
+        font-size: 1em;
+        font-weight: bold;
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding-left: gutter();
+      }
+    }
+  }
+
+  &__shadow {
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    top: 0;
+    pointer-events: none;
+
+    &--left {
+      left: 0;
+      background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+    }
+
+    &--right {
+      right: 0;
+      background: linear-gradient(to left, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+    }
+  }
+}
+
+.navigation-content {
+  @include navigation-content(150px, $spacing);
+
+
+  // Cross Component
+  .icon-multicast {
+
+    @media (min-width: 0) {
+      top: 0;
+    }
+    @media (min-width: 780px) {
+      top: -35px;
+    }
+  }
+}

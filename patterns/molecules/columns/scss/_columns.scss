@@ -1,0 +1,21 @@
+@mixin columns($spacing) {
+
+  @media (min-width: 0) {
+    @include gallery(12);
+    float: none;
+    padding-top: $spacing;
+  }
+  @media (min-width: 900px) {
+    @include gallery(6);
+    float: left;
+    padding-top: 0;
+  }
+}
+
+.columns__column--left {
+  @include columns(0);
+}
+
+.columns__column--right {
+  @include columns($spacing);
+}

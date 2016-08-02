@@ -1,0 +1,38 @@
+@mixin columns-category-small() {
+  @include span(2);
+
+  @media (min-width: 0) {
+    @include span(12);
+    float: none;
+  }
+  @media (min-width: 900px) {
+    @include span(2);
+    float: left;
+  }
+
+  // Cross component
+  .icon-multicast-blue, .icon-multicast-green, .icon-multicast-pink, .icon-multicast-yellow {
+    top: -80px;
+    position: relative;
+  }
+}
+
+@mixin columns-category-large($spacing) {
+
+  @media (min-width: 0) {
+    @include span(12);
+    padding-top: $spacing;
+  }
+  @media (min-width: 900px) {
+    @include span(8);
+    padding-top: 0;
+  }
+}
+
+.columns-category__column--left {
+  @include columns-category-small();
+}
+
+.columns-category__column--right {
+  @include columns-category-large($spacing);
+}

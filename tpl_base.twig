@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ language }}" class="no-js" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+{% block head %}
+
+  {{ seo['titleTag'] | raw }}
+
+  {% block head_meta %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {{ seo['allSeoTags'] | raw }}
+  {% endblock %}
+
+  <!-- Synchronous font loading (Typekit) -->
+  <!--<script src="https://use.typekit.net/jyx8ycz.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>-->
+
+  {% flush %}
+
+  {# CSS #}
+  {% block head_css %}
+    <link rel="stylesheet" href="{{ urlRoot }}/css/global.css">
+    <link rel="stylesheet" href="{{ urlDirTheme }}/css/app.min.css">
+  {% endblock %}
+
+  {# JavaScript #}
+  {% block head_js %}
+    <!-- If IE8 should be supported, anyway -->
+    <!--[if lt IE 9]>
+      <script src="{{ urlRoot }}/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+  {% endblock %}
+
+  {# <link rel="apple-touch-icon" href="{{ urlDirTheme }}/images/favicon.png"> #}
+  {# <link rel="icon" href="{{ urlDirTheme }}/images/favicon.ico" type="image/x-icon"> #}
+{% endblock %}
+
+    {{ plugin['in_header'] | raw }}
+  </head>
+  <body id="page{{ page_id }}" class="{{ page_template }}">
+
+    <div class="app">
+      {% block header %}
+      {% endblock %}
+
+      {% block navigation %}
+      {% endblock %}
+
+      {{ plugin['before_content'] | raw }}
+      {% block content %}{% endblock %}
+      {{ plugin['after_content'] | raw }}
+
+      {% block footer %}
+      {% endblock %}
+    </div>
+
+    {{ plugin['in_footer'] | raw }}
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ urlDirTheme }}/vendor/bower/jquery/dist/jquery.min.js?md5={{ md5_file(pathDirTheme ~ '/vendor/bower/jquery/dist/jquery.min.js') }}"><\/script>')</script>
+    <script src="{{ urlDirTheme }}/vendor/bower/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="{{ urlDirTheme }}/js/app.pkgd.js"></script>
+    <!-- Asynchronous font loading (Typekit) -->
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'jyx8ycz',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+  </body>
+</html>

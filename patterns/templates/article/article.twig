@@ -1,0 +1,38 @@
+{# @var indexSubPagesVars \cms\Page[] #}
+
+{% block header %}
+  {% include pathDirThemeRelative ~ "patterns/organisms/header/header.twig" %}
+{% endblock %}
+
+{% block navigation %}
+  {% include pathDirThemeRelative ~ "patterns/organisms/navigation/navigation.twig" with { 'items': navigationPagesVars } %}
+{% endblock %}
+
+{% block content %}
+  <main class="main" role="main">
+    {% for tmpPage in indexSubPagesVars %}
+
+      {% if tmpPage.pagelanguage_category == 'section-core-graphic' %}
+        {% set content_left = true %}
+      {% else %}
+        {% set content_right = true %}
+      {% endif %}
+
+      {% set item = {
+        'headline': tmpPage.pagelanguage_title,
+        'text': tmpPage.pagelanguage_teaser,
+        'url': tmpPage.url_seo,
+        'url_text': 'Mehr',
+        'content_left': content_left,
+        'image': tmpPage.pagelanguage_image,
+        'iconType': 'pink',
+      }%}
+
+      {% include pathDirThemeRelative ~ "patterns/organisms/" ~ tmpPage.pagelanguage_category ~ "/" ~ tmpPage.pagelanguage_category ~ ".twig" with { 'item': item } %}
+    {% endfor %}
+  </main>
+{% endblock %}
+
+{% block footer %}
+  {% include pathDirThemeRelative ~ "patterns/organisms/footer/footer.twig" %}
+{% endblock %}

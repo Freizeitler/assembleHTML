@@ -1,0 +1,32 @@
+# =============================================
+# PROJECT METADATA
+# =============================================
+
+title:          "Pattern Lab"
+
+# =============================================
+# DEST CONFIG
+# =============================================
+
+base:           _dist
+dest:           <%= settings.base %>
+assets:         <%= settings.base %>/assets
+styleguide:     <%= settings.base %>/_styleguide
+
+# =============================================
+# SOURCE CONFIG
+# =============================================
+
+# Data
+data:           data
+
+# =============================================
+# PATTERN LAB TEMPLATES
+# =============================================
+
+patterns:       patterns
+atoms:          <%= settings.patterns %>/atoms
+molecules:      <%= settings.patterns %>/molecules
+organisms:      <%= settings.patterns %>/organisms
+templates:      <%= settings.patterns %>/templates
+pages:          <%= settings.patterns %>/pages

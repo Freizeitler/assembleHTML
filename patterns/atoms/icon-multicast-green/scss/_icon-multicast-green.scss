@@ -1,0 +1,42 @@
+@mixin icon-multicast-green($height, $easing) {
+  $root: &;
+  width: $height;
+  height: $height;
+  display: inline-block;
+  background: $color-black;
+
+   &__svg {
+
+    &__path, &__border {
+      fill: $color-green;
+      transition: fill 0.2s;
+      pointer-events: none;
+    }
+
+    &__bg {
+      fill: $color-black;
+      transform-origin: $height/2;
+      transform: scale(0.5) rotate(-90deg);
+      transition: all 0.2s $easing;
+    }
+  }
+
+  &:hover {
+
+    #{$root}__svg {
+
+      &__path {
+        fill: $color-black;
+      }
+
+      &__bg {
+        fill: $color-green;
+        transform: scale(1) rotate(0);
+      }
+    }
+  }
+}
+
+.icon-multicast-green {
+  @include icon-multicast-green(135px, $global-easing);
+}

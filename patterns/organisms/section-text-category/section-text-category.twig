@@ -1,0 +1,13 @@
+
+<section class="section-text-category section-text-category--image" style="background-image: url({{ pathDirThemeRelative }}images/multicast-bg.jpg);">
+  {% if item.image %}
+    <img class="section-text-category__bg js-waypoint-hidden" src="{{ urlDirUpload }}{{ item.image }}" alt="" />
+  {% endif %}
+</section>
+
+<section class="section-text-category">
+  <div class="section-text-category__grid">
+    {% embed pathDirThemeRelative ~ "patterns/molecules/columns-category/columns-category.twig" with { 'item': item } %}
+    {% endembed %}
+  </div>
+</section>
