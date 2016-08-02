@@ -36,7 +36,6 @@ validation-report.json
 # Folders to ignore
 tmp
 temp
-vendor
 node_modules
 bower_components
 _site

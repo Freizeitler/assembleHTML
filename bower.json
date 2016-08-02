@@ -3,8 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "normalize-scss": "3.0.*",
+    "normalize.scss": "4.*",
     "jquery": "2.*",
-    "susy": "~2.2.12"
+    "susy": "~2.2.12",
+    "waypoints": "~4.0.0"
   }
 }

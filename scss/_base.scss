@@ -2,20 +2,91 @@
 * Basic Styles
 *
 * @desc Basic and common styles. Formats for every device live in Common Styles, for device-specific stylings use Mobile First approach.
-* @author [XX]
-* @dependency _app_settingsscss
+* @author [HZ]
+* @dependency _settings.scss
 */
 
 // Common Styles
-body { }
+body {
+  font: 300 1em/1.4 $font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-weight: 300;
+
+  @media (min-width: 0) {
+    font-size: 2.75em;
+  }
+  @media (min-width: 1035px) {
+    font-size: 3.75em;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+// Overwrites
+.app {
+
+  .header,
+  .navigation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    transform: translateY(0) translateX(0);
+    transition: transform 0.2s;
+  }
+
+  .elem--hidden {
+    transform: translateY(-90px);
+    transition: transform 0.2s;
+
+    &.navigation {
+      transform: translateY(-140px);
+
+      @media (min-width: 0) {
+        transform: translateX(2000px);
+      }
+      @media (min-width: 1200px) {
+        transform: translateY(-140px);
+      }
+    }
+
+    .header__logo {
+      @media (min-width: 0) {
+        transform: translateY(80px);
+        top: -57px;
+      }
+
+      .logo {
+        max-width: 50%;
+      }
+    }
+  }
+}
+
 
 // Media Queries (from min to max)
-@media (min-width: $breakpoint-min) { }
+@media (min-width: $breakpoint-min) {
+}
 
-@media (min-width: $breakpoint-small) { }
+@media (min-width: $breakpoint-small) {
+}
 
-@media (min-width: $breakpoint-medium) { }
+@media (min-width: $breakpoint-medium) {
+}
 
-@media (min-width: $breakpoint-large) { }
+@media (min-width: $breakpoint-large) {
+}
 
-@media (min-width: $breakpoint-max) { }
+@media (min-width: $breakpoint-max) {
+}

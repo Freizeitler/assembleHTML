@@ -1,3 +1,45 @@
 {
-
+  "sectionHeroVars": {
+    "items": {
+      "1": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "buttonText": "[[ Mehr ]]", "buttonHref": "#"},
+      "2": {"headline": "", "text": "", "buttonText": "", "buttonHref": "", "iconType": "pink"}
+    }
+  },
+  "sectionImageVars": {
+    "items": {
+      "1": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "buttonText": "[[ Mehr ]]", "buttonHref": "#"},
+      "2": {"headline": "", "text": "", "buttonText": "", "buttonHref": "", "iconType": "pink"}
+    }
+  },
+  "sectionTextVars": {
+    "items": {
+      "1": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "buttonText": "[[ Mehr ]]", "buttonHref": "#", "iconType": "pink"},
+      "2": {"headline": "", "text": "", "buttonText": "", "buttonHref": "", "iconType": "pink"}
+    }
+  },
+   "sectionCategoryVars": {
+    "items": {
+      "1": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "buttonText": "[[ Mehr ]]", "buttonHref": "#", "iconType": "pink"},
+      "2": {"headline": "", "text": "", "buttonText": "", "buttonHref": "", "iconType": "pink"}
+    }
+  },
+  "navigationPagesVars": {
+    "items": {
+      "1": {"text": "Über uns", "url": "#"},
+      "2": {"text": "Referenzen", "url": "#"},
+      "3": {"text": "FAQ", "url": "#"},
+      "4": {"text": "Try", "url": "#"},
+      "5": {"text": "<strong>Login</strong>", "url": "#"}
+    }
+  },
+  "items": {
+    "1": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "text": "[[ Mehr ]]", "url": "#", "iconType": "pink", "url_seo": "#", "pagelanguage_title": "Über uns"},
+    "2": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "text": "[[ Mehr ]]", "url": "#", "iconType": "pink", "url_seo": "#", "pagelanguage_title": "Über uns"},
+    "3": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "text": "[[ Mehr ]]", "url": "#", "iconType": "pink", "url_seo": "#", "pagelanguage_title": "Über uns"},
+    "4": {"headline": "[[ Lorem ipsum dolor sit amet, consectetur. ]]", "text": "[[ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus nulla ipsam, veritatis doloremque earum neque quo ipsum officia vitae cum nostrum commodi doloribus voluptate dolorem voluptatem, iure modi iste alias impedit ad voluptates. Reiciendis, laudantium, illo! ]]", "text": "[[ Mehr ]]", "url": "#", "iconType": "pink", "url_seo": "#", "pagelanguage_title": "Über uns"}
+  },
+  "button": {
+    "buttonText": "[[ Mehr ]]", "buttonHref": "#"
+  },
+  "pathDirThemeRelative": "../../../"
 }

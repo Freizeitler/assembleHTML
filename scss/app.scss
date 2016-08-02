@@ -1,29 +1,20 @@
 @charset "UTF-8";
 
-@import "../vendor/bower/normalize-scss/normalize";
+// vendor
+@import "../vendor/bower/normalize.scss/sass/normalize";
 @import "../vendor/bower/susy/sass/susy";
 
-// Global Settings
-@import "app_settings";
+// settings
+@import "settings";
 
-// Helper
+// normalize
+@include normalize();
+
+// helper
 @import "helper";
 
-// Base Styles
+// base
 @import "base";
 
-// Atoms
-@import "../patterns/atoms/button/scss/button";
-
-// Molecules
-@import "../patterns/molecules/buttonLabel/scss/buttonLabel";
-
-// Organisms
-@import "../patterns/organisms/susy-grid-example/scss/susy-grid-example";
-
-// Pages
-//@import "../patterns/pages/buttons/scss/example";
-
-
-// Init
-@import "init";
+// components
+@import "components";
